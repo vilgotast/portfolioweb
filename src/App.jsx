@@ -15,6 +15,7 @@ const App = () => (
           {navItems.map(({ to, page }) => (
             <Route key={to} path={to} element={page} />
           ))}
+          <Route path="/projects/chatbot" element={<iframe src="/projects/chatbot" style={{width: '100%', height: '100vh', border: 'none'}} />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

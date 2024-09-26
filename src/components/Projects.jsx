@@ -22,6 +22,12 @@ const projectData = [
     description: "Web-based dashboard for visualizing and analyzing predictive models' outputs.",
     tags: ["Machine Learning", "React", "D3.js", "Python"],
     link: "#"
+  },
+  {
+    title: "Flask Chatbot Project",
+    description: "A simple chatbot implemented using Flask with a Python backend and HTML frontend.",
+    tags: ["Python", "Flask", "HTML", "JavaScript"],
+    link: "/projects/chatbot"
   }
 ];
 
