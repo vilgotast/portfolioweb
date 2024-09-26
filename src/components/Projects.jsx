@@ -1,24 +1,25 @@
 import React from 'react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { ArrowRightIcon } from 'lucide-react';
 
 const projectData = [
   {
     title: "AI-Powered Image Recognition",
-    description: "Developed a deep learning model for real-time object detection in images and video streams.",
+    description: "Real-time object detection in images and video streams using deep learning.",
     tags: ["Computer Vision", "TensorFlow", "Python"],
     link: "#"
   },
   {
     title: "Natural Language Processing Chatbot",
-    description: "Created an intelligent chatbot using NLP techniques to understand and respond to user queries.",
+    description: "Intelligent chatbot using NLP techniques for understanding and responding to queries.",
     tags: ["NLP", "BERT", "Python", "Flask"],
     link: "#"
   },
   {
     title: "Predictive Analytics Dashboard",
-    description: "Built a web-based dashboard for visualizing and analyzing predictive models' outputs.",
+    description: "Web-based dashboard for visualizing and analyzing predictive models' outputs.",
     tags: ["Machine Learning", "React", "D3.js", "Python"],
     link: "#"
   }
@@ -28,27 +29,32 @@ const Projects = () => {
   return (
     <section className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Featured Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">Innovative AI Projects</h2>
+        <div className="grid grid-cols-1 gap-12">
           {projectData.map((project, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="secondary">{tag}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" asChild>
-                  <a href={project.link}>Learn More</a>
-                </Button>
-              </CardFooter>
-            </Card>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <CardHeader className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white">
+                  <CardTitle className="text-2xl">{project.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <CardDescription className="text-gray-600 mb-4">{project.description}</CardDescription>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, tagIndex) => (
+                      <Badge key={tagIndex} variant="secondary" className="bg-purple-100 text-purple-800">{tag}</Badge>
+                    ))}
+                  </div>
+                  <a href={project.link} className="inline-flex items-center text-purple-700 hover:text-purple-900 transition-colors duration-300">
+                    Learn More <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  </a>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
