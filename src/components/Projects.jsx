@@ -29,7 +29,7 @@ const Projects = () => {
   return (
     <section className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16 text-blue-300">Innovative AI Projects</h2>
+        <h2 className="text-4xl font-bold text-center mb-16 text-blue-200">Innovative AI Projects</h2>
         <div className="grid grid-cols-1 gap-12">
           {projectData.map((project, index) => (
             <motion.div
@@ -39,14 +39,14 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-gray-800 border-gray-700">
-                <CardHeader className="bg-gradient-to-r from-blue-800 to-blue-600 text-white">
+                <CardHeader className="bg-gradient-to-r from-gray-800 to-gray-700 text-white">
                   <CardTitle className="text-2xl">{project.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="p-6">
                   <CardDescription className="text-gray-300 mb-4">{project.description}</CardDescription>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="secondary" className="bg-blue-900 text-blue-200">{tag}</Badge>
+                      <Badge key={tagIndex} variant="secondary" className="bg-gray-700 text-blue-200">{tag}</Badge>
                     ))}
                   </div>
                   <a href={project.link} className="inline-flex items-center text-blue-300 hover:text-blue-100 transition-colors duration-300">
