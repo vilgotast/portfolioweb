@@ -4,30 +4,30 @@ import { GithubIcon, LinkedinIcon, MailIcon } from 'lucide-react';
 
 const Header = () => {
   return (
-    <header className="bg-gray-800 shadow-md">
-      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">Vilgot Åström</h1>
+    <header className="bg-gray-800 shadow-md fixed top-0 left-0 right-0 z-50">
+      <div className="container mx-auto px-4 py-8 flex justify-between items-center">
+        <h1 className="text-3xl font-bold text-blue-300">Vilgot Åström</h1>
         <nav>
-          <ul className="flex space-x-4">
-            <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300">About</Button></li>
-            <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300">Projects</Button></li>
-            <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300">Contact</Button></li>
+          <ul className="flex space-x-6">
+            <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300 text-lg">About</Button></li>
+            <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300 text-lg">Projects</Button></li>
+            <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300 text-lg">Contact</Button></li>
           </ul>
         </nav>
-        <div className="flex space-x-2">
+        <div className="flex space-x-4">
           <Button variant="outline" size="icon" className="text-gray-300 hover:text-blue-300 hover:border-blue-300" asChild>
             <a href="https://github.com/vilgotast" target="_blank" rel="noopener noreferrer">
-              <GithubIcon className="h-4 w-4" />
+              <GithubIcon className="h-5 w-5" />
             </a>
           </Button>
           <Button variant="outline" size="icon" className="text-gray-300 hover:text-blue-300 hover:border-blue-300" asChild>
             <a href="https://www.linkedin.com/in/vilgot-åström-1124401b5" target="_blank" rel="noopener noreferrer">
-              <LinkedinIcon className="h-4 w-4" />
+              <LinkedinIcon className="h-5 w-5" />
             </a>
           </Button>
           <Button variant="outline" size="icon" className="text-gray-300 hover:text-blue-300 hover:border-blue-300" asChild>
             <a href="mailto:vilgot.ast@gmail.com">
-              <MailIcon className="h-4 w-4" />
+              <MailIcon className="h-5 w-5" />
             </a>
           </Button>
         </div>

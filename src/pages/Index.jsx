@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-900 font-sans text-gray-100">
       <Header />
-      <main>
+      <main className="pt-24"> {/* Add padding-top to account for fixed header */}
         <Hero />
         <Projects />
       </main>
