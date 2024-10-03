@@ -100,15 +100,15 @@ const projectDetails = {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <img src="/images/stylealign/stylealign_ex1.png" alt="StyleAlign Example 1" className="w-full h-auto rounded-lg shadow-md mb-2" />
-              <p className="text-sm text-gray-400">Prompt: "Transform a cityscape photo into a vibrant watercolor painting"</p>
+              <p className="text-sm text-gray-400">Reference image (left side) had the prompt: "A drawing of a sea", and the target image got the prompt "A boat". </p>
             </div>
             <div>
               <img src="/images/stylealign/stylealign_ex2.png" alt="StyleAlign Example 2" className="w-full h-auto rounded-lg shadow-md mb-2" />
-              <p className="text-sm text-gray-400">Prompt: "Apply a Van Gogh-inspired starry night style to a landscape image"</p>
+              <p className="text-sm text-gray-400">Reference prompt: "Watercolor painting of a desert highway". Target prompt: "A blue car".</p>
             </div>
             <div>
               <img src="/images/stylealign/stylealign_ex3.png" alt="StyleAlign Example 3" className="w-full h-auto rounded-lg shadow-md mb-2" />
-              <p className="text-sm text-gray-400">Prompt: "Convert a portrait photograph into a pop art style illustration"</p>
+              <p className="text-sm text-gray-400">Reference prompt: "A 1920s photograph of grassy hills". Target prompt: "An airplane".</p>
             </div>
           </div>
         </div>
