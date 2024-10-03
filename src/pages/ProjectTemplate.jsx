@@ -63,53 +63,7 @@ const projectDetails = {
             Open in Google Colab
           </a>
         </div>
-        <div className="mt-8">
-          <h3 className="text-2xl font-semibold mb-4">Style Transfer Examples</h3>
-          <div className="space-y-8">
-            <div>
-              <h4 className="text-lg font-medium mb-2">Example 1: Sea Drawing to Boat</h4>
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1">
-                  <img src="/images/stylealign/sea-drawing.jpg" alt="Drawing of a sea" className="w-full h-auto rounded-lg shadow-md" />
-                  <p className="mt-2 text-sm text-gray-500">Reference prompt: "a drawing of a sea"</p>
-                </div>
-                <div className="flex-1">
-                  <img src="/images/stylealign/boat-drawing.jpg" alt="Drawing of a boat" className="w-full h-auto rounded-lg shadow-md" />
-                  <p className="mt-2 text-sm text-gray-500">New prompt: "a boat"</p>
-                </div>
-              </div>
-              <p className="mt-2">The style of the sea drawing is successfully transferred to the new image of a boat.</p>
-            </div>
-            <div>
-              <h4 className="text-lg font-medium mb-2">Example 2: Watercolor Desert Highway to Blue Car</h4>
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1">
-                  <img src="/images/stylealign/desert-highway.jpg" alt="Watercolor painting of a desert highway" className="w-full h-auto rounded-lg shadow-md" />
-                  <p className="mt-2 text-sm text-gray-500">Reference prompt: "water color painting of a desert highway"</p>
-                </div>
-                <div className="flex-1">
-                  <img src="/images/stylealign/blue-car.jpg" alt="Watercolor painting of a blue car" className="w-full h-auto rounded-lg shadow-md" />
-                  <p className="mt-2 text-sm text-gray-500">New prompt: "a blue car"</p>
-                </div>
-              </div>
-              <p className="mt-2">The watercolor style and desert context are effectively applied to the new image of a blue car.</p>
-            </div>
-            <div>
-              <h4 className="text-lg font-medium mb-2">Example 3: 1920s Photograph to Airplane</h4>
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1">
-                  <img src="/images/stylealign/1920s-hill.jpg" alt="1920s photograph of a hill" className="w-full h-auto rounded-lg shadow-md" />
-                  <p className="mt-2 text-sm text-gray-500">Reference prompt: "a 1920s photograph of a hill"</p>
-                </div>
-                <div className="flex-1">
-                  <img src="/images/stylealign/1920s-airplane.jpg" alt="1920s style photograph of an airplane" className="w-full h-auto rounded-lg shadow-md" />
-                  <p className="mt-2 text-sm text-gray-500">New prompt: "an airplane"</p>
-                </div>
-              </div>
-              <p className="mt-2">While not perfect, the 1920s photographic style is effectively transferred to the new image of an airplane.</p>
-            </div>
-          </div>
-        </div>
+        <StyleAlignExamples />
       </>
     )
   },
@@ -179,6 +133,43 @@ const projectDetails = {
     )
   }
 };
+
+const StyleAlignExamples = () => (
+  <div className="mt-8">
+    <h3 className="text-2xl font-semibold mb-4">Style Transfer Examples</h3>
+    <div className="space-y-8">
+      <ExampleImage
+        src="/images/stylealign/sea-drawing.jpg"
+        alt="Drawing of a sea transferred to a boat"
+        referencePrompt="a drawing of a sea"
+        newPrompt="a boat"
+        description="The style of the sea drawing is successfully transferred to the new image of a boat."
+      />
+      <ExampleImage
+        src="/images/stylealign/desert-highway.jpg"
+        alt="Watercolor painting of a desert highway transferred to a blue car"
+        referencePrompt="water color painting of a desert highway"
+        newPrompt="a blue car"
+        description="The watercolor style and desert context are effectively applied to the new image of a blue car."
+      />
+      <ExampleImage
+        src="/images/stylealign/1920s-hill.jpg"
+        alt="1920s photograph of a hill transferred to an airplane"
+        referencePrompt="a 1920s photograph of a hill"
+        newPrompt="an airplane"
+        description="While not perfect, the 1920s photographic style is effectively transferred to the new image of an airplane."
+      />
+    </div>
+  </div>
+);
+
+const ExampleImage = ({ src, alt, referencePrompt, newPrompt, description }) => (
+  <div>
+    <img src={src} alt={alt} className="w-full h-auto rounded-lg shadow-md" />
+    <p className="mt-2 text-sm text-gray-500">Reference prompt: "{referencePrompt}" | New prompt: "{newPrompt}"</p>
+    <p className="mt-2">{description}</p>
+  </div>
+);
 
 const ProjectTemplate = () => {
   const { projectId } = useParams();
