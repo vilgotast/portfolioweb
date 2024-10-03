@@ -1,16 +1,19 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { GithubIcon, LinkedinIcon, MailIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <header className="bg-gray-800 shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto px-4 py-8 flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-blue-300">Vilgot Åström</h1>
+        <Link to="/" className="text-3xl font-bold text-blue-300 hover:text-blue-200 transition-colors">
+          Vilgot Åström
+        </Link>
         <nav>
           <ul className="flex space-x-6">
-            <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300 text-lg">About</Button></li>
-            <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300 text-lg">Projects</Button></li>
+            <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300 text-lg" asChild><Link to="/">Home</Link></Button></li>
+            <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300 text-lg" asChild><Link to="/projects">Projects</Link></Button></li>
             <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300 text-lg">Contact</Button></li>
           </ul>
         </nav>
