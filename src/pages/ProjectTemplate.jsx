@@ -2,11 +2,13 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Button } from "@/components/ui/button";
 
 const projectDetails = {
   benbot: {
     title: "BenBot",
     description: "BenBot is an advanced chatbot project with a live demo. It showcases natural language processing capabilities and real-time interaction.",
+    demoLink: "https://benchat-fbt5.onrender.com/",
     content: (
       <>
         <p>BenBot is a state-of-the-art chatbot that demonstrates the power of modern NLP techniques. Users can interact with BenBot in real-time, experiencing fluid and context-aware conversations.</p>
@@ -17,13 +19,6 @@ const projectDetails = {
           <li>Multi-turn conversation handling</li>
           <li>Integration with external knowledge bases</li>
         </ul>
-        <div className="mt-6">
-          <h3 className="text-xl font-semibold mb-2">Live Demo</h3>
-          <p>Experience BenBot in action! Click the button below to interact with the live demo:</p>
-          <button className="mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-            Launch BenBot Demo
-          </button>
-        </div>
       </>
     )
   },
@@ -155,6 +150,16 @@ const ProjectTemplate = () => {
         <div className="prose prose-invert max-w-none">
           {project.content}
         </div>
+        {project.demoLink && (
+          <div className="mt-8">
+            <Button 
+              onClick={() => window.open(project.demoLink, '_blank')}
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+            >
+              Try Live Demo
+            </Button>
+          </div>
+        )}
       </main>
       <Footer />
     </div>
