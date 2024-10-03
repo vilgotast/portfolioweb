@@ -4,6 +4,43 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Button } from "@/components/ui/button";
 
+const ExampleImage = ({ src, alt, referencePrompt, newPrompt, description }) => (
+  <div>
+    <img src={src} alt={alt} className="w-full h-auto rounded-lg shadow-md" />
+    <p className="mt-2 text-sm text-gray-500">Reference prompt: "{referencePrompt}" | New prompt: "{newPrompt}"</p>
+    <p className="mt-2">{description}</p>
+  </div>
+);
+
+const StyleAlignExamples = () => (
+  <div className="mt-8">
+    <h3 className="text-2xl font-semibold mb-4">Style Transfer Examples</h3>
+    <div className="space-y-8">
+      <ExampleImage
+        src="/images/stylealign/sea-drawing.jpg"
+        alt="Drawing of a sea transferred to a boat"
+        referencePrompt="a drawing of a sea"
+        newPrompt="a boat"
+        description="The style of the sea drawing is successfully transferred to the new image of a boat."
+      />
+      <ExampleImage
+        src="/images/stylealign/desert-highway.jpg"
+        alt="Watercolor painting of a desert highway transferred to a blue car"
+        referencePrompt="water color painting of a desert highway"
+        newPrompt="a blue car"
+        description="The watercolor style and desert context are effectively applied to the new image of a blue car."
+      />
+      <ExampleImage
+        src="/images/stylealign/1920s-hill.jpg"
+        alt="1920s photograph of a hill transferred to an airplane"
+        referencePrompt="a 1920s photograph of a hill"
+        newPrompt="an airplane"
+        description="While not perfect, the 1920s photographic style is effectively transferred to the new image of an airplane."
+      />
+    </div>
+  </div>
+);
+
 const projectDetails = {
   benbot: {
     title: "BenBot",
@@ -133,43 +170,6 @@ const projectDetails = {
     )
   }
 };
-
-const StyleAlignExamples = () => (
-  <div className="mt-8">
-    <h3 className="text-2xl font-semibold mb-4">Style Transfer Examples</h3>
-    <div className="space-y-8">
-      <ExampleImage
-        src="/images/stylealign/sea-drawing.jpg"
-        alt="Drawing of a sea transferred to a boat"
-        referencePrompt="a drawing of a sea"
-        newPrompt="a boat"
-        description="The style of the sea drawing is successfully transferred to the new image of a boat."
-      />
-      <ExampleImage
-        src="/images/stylealign/desert-highway.jpg"
-        alt="Watercolor painting of a desert highway transferred to a blue car"
-        referencePrompt="water color painting of a desert highway"
-        newPrompt="a blue car"
-        description="The watercolor style and desert context are effectively applied to the new image of a blue car."
-      />
-      <ExampleImage
-        src="/images/stylealign/1920s-hill.jpg"
-        alt="1920s photograph of a hill transferred to an airplane"
-        referencePrompt="a 1920s photograph of a hill"
-        newPrompt="an airplane"
-        description="While not perfect, the 1920s photographic style is effectively transferred to the new image of an airplane."
-      />
-    </div>
-  </div>
-);
-
-const ExampleImage = ({ src, alt, referencePrompt, newPrompt, description }) => (
-  <div>
-    <img src={src} alt={alt} className="w-full h-auto rounded-lg shadow-md" />
-    <p className="mt-2 text-sm text-gray-500">Reference prompt: "{referencePrompt}" | New prompt: "{newPrompt}"</p>
-    <p className="mt-2">{description}</p>
-  </div>
-);
 
 const ProjectTemplate = () => {
   const { projectId } = useParams();
