@@ -3,43 +3,38 @@ import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Button } from "@/components/ui/button";
+import ProjectContent from '../components/ProjectContent';
 
-const ExampleImage = ({ src, alt, referencePrompt, newPrompt, description }) => (
-  <div>
-    <img src={src} alt={alt} className="w-full h-auto rounded-lg shadow-md" />
-    <p className="mt-2 text-sm text-gray-500">Reference prompt: "{referencePrompt}" | New prompt: "{newPrompt}"</p>
-    <p className="mt-2">{description}</p>
-  </div>
-);
+const ProjectTemplate = () => {
+  const { projectId } = useParams();
+  const project = projectDetails[projectId];
 
-const StyleAlignExamples = () => (
-  <div className="mt-8">
-    <h3 className="text-2xl font-semibold mb-4">Style Transfer Examples</h3>
-    <div className="space-y-8">
-      <ExampleImage
-        src="/images/stylealign/sea-drawing.jpg"
-        alt="Drawing of a sea transferred to a boat"
-        referencePrompt="a drawing of a sea"
-        newPrompt="a boat"
-        description="The style of the sea drawing is successfully transferred to the new image of a boat."
-      />
-      <ExampleImage
-        src="/images/stylealign/desert-highway.jpg"
-        alt="Watercolor painting of a desert highway transferred to a blue car"
-        referencePrompt="water color painting of a desert highway"
-        newPrompt="a blue car"
-        description="The watercolor style and desert context are effectively applied to the new image of a blue car."
-      />
-      <ExampleImage
-        src="/images/stylealign/1920s-hill.jpg"
-        alt="1920s photograph of a hill transferred to an airplane"
-        referencePrompt="a 1920s photograph of a hill"
-        newPrompt="an airplane"
-        description="While not perfect, the 1920s photographic style is effectively transferred to the new image of an airplane."
-      />
+  if (!project) {
+    return <div>Project not found</div>;
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-white">
+      <Header />
+      <main className="container mx-auto px-4 py-24">
+        <h1 className="text-4xl font-bold mb-6">{project.title}</h1>
+        <p className="text-xl mb-8 text-gray-300">{project.description}</p>
+        <ProjectContent content={project.content} />
+        {project.demoLink && (
+          <div className="mt-8">
+            <Button 
+              onClick={() => window.open(project.demoLink, '_blank')}
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+            >
+              Try Live Demo
+            </Button>
+          </div>
+        )}
+      </main>
+      <Footer />
     </div>
-  </div>
-);
+  );
+};
 
 const projectDetails = {
   benbot: {
@@ -100,7 +95,14 @@ const projectDetails = {
             Open in Google Colab
           </a>
         </div>
-        <StyleAlignExamples />
+        <div className="mt-8">
+          <h3 className="text-2xl font-semibold mb-4">Style Transfer Examples</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <img src="/images/stylealign/stylealign_ex1.png" alt="StyleAlign Example 1" className="w-full h-auto rounded-lg shadow-md" />
+            <img src="/images/stylealign/stylealign_ex2.png" alt="StyleAlign Example 2" className="w-full h-auto rounded-lg shadow-md" />
+            <img src="/images/stylealign/stylealign_ex3.png" alt="StyleAlign Example 3" className="w-full h-auto rounded-lg shadow-md" />
+          </div>
+        </div>
       </>
     )
   },
@@ -169,39 +171,6 @@ const projectDetails = {
       </>
     )
   }
-};
-
-const ProjectTemplate = () => {
-  const { projectId } = useParams();
-  const project = projectDetails[projectId];
-
-  if (!project) {
-    return <div>Project not found</div>;
-  }
-
-  return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <Header />
-      <main className="container mx-auto px-4 py-24">
-        <h1 className="text-4xl font-bold mb-6">{project.title}</h1>
-        <p className="text-xl mb-8 text-gray-300">{project.description}</p>
-        <div className="prose prose-invert max-w-none">
-          {project.content}
-        </div>
-        {project.demoLink && (
-          <div className="mt-8">
-            <Button 
-              onClick={() => window.open(project.demoLink, '_blank')}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-            >
-              Try Live Demo
-            </Button>
-          </div>
-        )}
-      </main>
-      <Footer />
-    </div>
-  );
 };
 
 export default ProjectTemplate;
