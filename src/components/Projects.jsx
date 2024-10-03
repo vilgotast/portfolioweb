@@ -10,7 +10,8 @@ const projectData = [
     title: "BenBot",
     description: "A chatbot project with a live demo.",
     tags: ["Chatbot", "AI", "NLP"],
-    link: "/projects/benbot"
+    link: "/projects/benbot",
+    demoLink: "https://benchat-fbt5.onrender.com/"
   },
   {
     title: "SumoTraffic",
@@ -78,15 +79,28 @@ const Projects = () => {
                         ))}
                       </div>
                     </div>
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      whileHover={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Link to={project.link} className="inline-flex items-center text-blue-300 hover:text-blue-100 transition-colors duration-300">
-                        Learn More <ArrowRightIcon className="ml-2 h-4 w-4" />
-                      </Link>
-                    </motion.div>
+                    <div className="flex flex-col space-y-2">
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileHover={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Link to={project.link} className="inline-flex items-center text-blue-300 hover:text-blue-100 transition-colors duration-300">
+                          Learn More <ArrowRightIcon className="ml-2 h-4 w-4" />
+                        </Link>
+                      </motion.div>
+                      {project.demoLink && (
+                        <motion.div
+                          initial={{ opacity: 0, x: -20 }}
+                          whileHover={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-green-300 hover:text-green-100 transition-colors duration-300">
+                            Live Demo <ArrowRightIcon className="ml-2 h-4 w-4" />
+                          </a>
+                        </motion.div>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
