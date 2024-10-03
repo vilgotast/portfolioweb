@@ -59,7 +59,7 @@ const projectDetails = {
         <div className="mt-6">
           <h3 className="text-xl font-semibold mb-2">Try it on Google Colab</h3>
           <p>Experience StyleAlign yourself using our Google Colab notebook:</p>
-          <a href="https://colab.research.google.com/your-stylealign-notebook" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+          <a href="https://colab.research.google.com/drive/1sQnSQ6Vl-5_FCbHSddgqDCJO8EEWsvgL?usp=sharing" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
             Open in Google Colab
           </a>
         </div>
