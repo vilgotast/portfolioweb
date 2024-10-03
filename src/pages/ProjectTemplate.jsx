@@ -98,9 +98,18 @@ const projectDetails = {
         <div className="mt-8">
           <h3 className="text-2xl font-semibold mb-4">Style Transfer Examples</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <img src="/images/stylealign/stylealign_ex1.png" alt="StyleAlign Example 1" className="w-full h-auto rounded-lg shadow-md" />
-            <img src="/images/stylealign/stylealign_ex2.png" alt="StyleAlign Example 2" className="w-full h-auto rounded-lg shadow-md" />
-            <img src="/images/stylealign/stylealign_ex3.png" alt="StyleAlign Example 3" className="w-full h-auto rounded-lg shadow-md" />
+            <div>
+              <img src="/images/stylealign/stylealign_ex1.png" alt="StyleAlign Example 1" className="w-full h-auto rounded-lg shadow-md mb-2" />
+              <p className="text-sm text-gray-400">Prompt: "Transform a cityscape photo into a vibrant watercolor painting"</p>
+            </div>
+            <div>
+              <img src="/images/stylealign/stylealign_ex2.png" alt="StyleAlign Example 2" className="w-full h-auto rounded-lg shadow-md mb-2" />
+              <p className="text-sm text-gray-400">Prompt: "Apply a Van Gogh-inspired starry night style to a landscape image"</p>
+            </div>
+            <div>
+              <img src="/images/stylealign/stylealign_ex3.png" alt="StyleAlign Example 3" className="w-full h-auto rounded-lg shadow-md mb-2" />
+              <p className="text-sm text-gray-400">Prompt: "Convert a portrait photograph into a pop art style illustration"</p>
+            </div>
           </div>
         </div>
       </>
