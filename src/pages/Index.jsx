@@ -7,8 +7,8 @@ import Footer from '../components/Footer';
 const Index = () => {
   return (
     <div className="min-h-screen bg-gray-900 font-sans text-gray-100">
-      <Header />
-      <main className="pt-24"> {/* Add padding-top to account for fixed header */}
+      <Header isStartPage={true} />
+      <main className="pt-24">
         <Hero />
         <Projects />
       </main>
