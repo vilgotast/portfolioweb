@@ -15,8 +15,8 @@ const ProjectTemplate = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <Header />
-      <main className="container mx-auto px-4 py-24">
+      <Header isStartPage={false} />
+      <main className="container mx-auto px-4 py-24 max-w-5xl">
         <h1 className="text-4xl font-bold mb-6">{project.title}</h1>
         <p className="text-xl mb-8 text-gray-300">{project.description}</p>
         <ProjectContent content={project.content} />
@@ -36,6 +36,7 @@ const ProjectTemplate = () => {
   );
 };
 
+const projectDetails = {
 const projectDetails = {
   benbot: {
     title: "BenBot",
