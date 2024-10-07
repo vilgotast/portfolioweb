@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-900 font-sans text-gray-100">
       <Header isStartPage={true} />
-      <main className="pt-24">
+      <main className="pt-32"> {/* Increased padding-top */}
         <Hero />
         <Projects />
       </main>

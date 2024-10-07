@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRightIcon } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const projectData = [
   {
@@ -46,6 +46,8 @@ const projectData = [
 ];
 
 const Projects = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
@@ -65,6 +67,8 @@ const Projects = () => {
                   boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)"
                 }}
                 transition={{ duration: 0.3 }}
+                onClick={() => navigate(project.link)}
+                className="cursor-pointer"
               >
                 <Card className="overflow-hidden transition-all duration-300 bg-gray-800 border-gray-700 h-full">
                   <CardHeader className="bg-gradient-to-r from-gray-800 to-gray-700 text-white">
@@ -85,19 +89,23 @@ const Projects = () => {
                         whileHover={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <Link to={project.link} className="inline-flex items-center text-blue-300 hover:text-blue-100 transition-colors duration-300">
+                        <div className="inline-flex items-center text-blue-300 hover:text-blue-100 transition-colors duration-300">
                           Learn More <ArrowRightIcon className="ml-2 h-4 w-4" />
-                        </Link>
+                        </div>
                       </motion.div>
                       {project.demoLink && (
                         <motion.div
                           initial={{ opacity: 0, x: -20 }}
                           whileHover={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.3 }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.demoLink, '_blank');
+                          }}
                         >
-                          <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-green-300 hover:text-green-100 transition-colors duration-300">
+                          <div className="inline-flex items-center text-green-300 hover:text-green-100 transition-colors duration-300">
                             Live Demo <ArrowRightIcon className="ml-2 h-4 w-4" />
-                          </a>
+                          </div>
                         </motion.div>
                       )}
                     </div>

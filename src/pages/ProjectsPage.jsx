@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRightIcon } from 'lucide-react';
@@ -46,14 +46,20 @@ const projectData = [
 ];
 
 const ProjectsPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <Header isStartPage={false} />
-      <main className="container mx-auto px-4 py-24 max-w-5xl">
+      <main className="container mx-auto px-4 py-32 max-w-5xl"> {/* Increased padding-top */}
         <h1 className="text-4xl font-bold mb-12 text-center">My Projects</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectData.map((project, index) => (
-            <Card key={index} className="bg-gray-800 border-gray-700">
+            <Card 
+              key={index} 
+              className="bg-gray-800 border-gray-700 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105"
+              onClick={() => navigate(project.link)}
+            >
               <CardHeader>
                 <CardTitle className="text-2xl text-blue-300">{project.title}</CardTitle>
               </CardHeader>
@@ -64,9 +70,9 @@ const ProjectsPage = () => {
                     <Badge key={tagIndex} variant="secondary" className="bg-gray-700 text-blue-200">{tag}</Badge>
                   ))}
                 </div>
-                <Link to={project.link} className="inline-flex items-center text-blue-300 hover:text-blue-100 transition-colors duration-300">
+                <div className="inline-flex items-center text-blue-300 hover:text-blue-100 transition-colors duration-300">
                   Learn More <ArrowRightIcon className="ml-2 h-4 w-4" />
-                </Link>
+                </div>
               </CardContent>
             </Card>
           ))}
