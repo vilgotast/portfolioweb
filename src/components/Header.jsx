@@ -20,7 +20,7 @@ const Header = ({ isStartPage = false }) => {
             <ul className="flex space-x-4">
               <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300" asChild><Link to="/">Home</Link></Button></li>
               <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300" asChild><Link to="/projects">Projects</Link></Button></li>
-              <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300">Contact</Button></li>
+              <li><Button variant="ghost" className="text-gray-300 hover:text-blue-300" asChild><Link to="/contact">Contact</Link></Button></li>
             </ul>
           </nav>
           <div className="hidden md:flex space-x-2 ml-4">
@@ -51,7 +51,7 @@ const Header = ({ isStartPage = false }) => {
             <ul className="space-y-2">
               <li><Button variant="ghost" className="w-full text-left text-gray-300 hover:text-blue-300" asChild><Link to="/" onClick={toggleMenu}>Home</Link></Button></li>
               <li><Button variant="ghost" className="w-full text-left text-gray-300 hover:text-blue-300" asChild><Link to="/projects" onClick={toggleMenu}>Projects</Link></Button></li>
-              <li><Button variant="ghost" className="w-full text-left text-gray-300 hover:text-blue-300" onClick={toggleMenu}>Contact</Button></li>
+              <li><Button variant="ghost" className="w-full text-left text-gray-300 hover:text-blue-300" asChild><Link to="/contact" onClick={toggleMenu}>Contact</Link></Button></li>
             </ul>
           </nav>
           <div className="flex justify-center space-x-4 mt-4">

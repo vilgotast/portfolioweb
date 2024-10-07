@@ -6,6 +6,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { navItems } from "./nav-items";
 import ProjectTemplate from "./pages/ProjectTemplate";
 import ProjectsPage from "./pages/ProjectsPage";
+import ContactPage from "./pages/ContactPage";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/projects/:projectId" element={<ProjectTemplate />} />
             <Route path="/projects/chatbot" element={<iframe src="/projects/chatbot" style={{width: '100%', height: '100vh', border: 'none'}} />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </HashRouter>
       </TooltipProvider>
