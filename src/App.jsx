@@ -7,6 +7,7 @@ import { navItems } from "./nav-items";
 import ProjectTemplate from "./pages/ProjectTemplate";
 import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <HashRouter>
+          <ScrollToTop />
           <Routes>
             {navItems.map(({ to, page }) => (
               <Route key={to} path={to} element={page} />
