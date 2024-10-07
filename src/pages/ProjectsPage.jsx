@@ -14,36 +14,42 @@ const projectData = [
     description: "A chatbot project with a live demo.",
     tags: ["Chatbot", "AI", "NLP"],
     link: "/projects/benbot",
+    currentWork: "Improving natural language understanding capabilities.",
   },
   {
     title: "SumoTraffic",
     description: "Traffic simulation project.",
     tags: ["Simulation", "Traffic Management"],
     link: "/projects/sumotraffic",
+    currentWork: "Implementing advanced traffic light algorithms.",
   },
   {
     title: "StyleAlign",
     description: "Style transfer project with Google Colab integration.",
     tags: ["Machine Learning", "Computer Vision", "Google Colab"],
     link: "/projects/stylealign",
+    currentWork: "Experimenting with new artistic styles.",
   },
   {
     title: "Gym Racecar",
     description: "A reinforcement learning project for racing car simulation.",
     tags: ["Reinforcement Learning", "Simulation"],
     link: "/projects/gymracecar",
+    currentWork: "Optimizing the reward function for smoother driving.",
   },
   {
     title: "Deep Birdsound Generator",
     description: "An experimental project for generating bird sounds (currently in development).",
     tags: ["Audio Generation", "Deep Learning"],
     link: "/projects/deepbirdsound",
+    currentWork: "Collecting and preprocessing bird sound datasets.",
   },
   {
     title: "Flask Chatbot",
     description: "A simple chatbot implemented using Flask with a Python backend and HTML frontend.",
     tags: ["Python", "Flask", "HTML", "JavaScript"],
     link: "/projects/chatbot",
+    currentWork: "Adding more interactive features to the frontend.",
   },
 ];
 
@@ -88,6 +94,12 @@ const ProjectsPage = () => {
                       <Badge key={tagIndex} variant="secondary" className="bg-gray-700 text-blue-200">{tag}</Badge>
                     ))}
                   </div>
+                  {project.currentWork && (
+                    <div className="mb-4">
+                      <h4 className="text-sm font-semibold text-blue-200 mb-1">Currently working on:</h4>
+                      <p className="text-sm text-gray-300">{project.currentWork}</p>
+                    </div>
+                  )}
                   <motion.div
                     whileHover={{ x: 5 }}
                     className="inline-flex items-center text-blue-300 hover:text-blue-100 transition-colors duration-300"
