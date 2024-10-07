@@ -37,7 +37,6 @@ const ProjectTemplate = () => {
 };
 
 const projectDetails = {
-const projectDetails = {
   benbot: {
     title: "BenBot",
     description: "BenBot is an advanced chatbot project with a live demo. It showcases natural language processing capabilities and real-time interaction.",
@@ -100,15 +99,15 @@ const projectDetails = {
           <h3 className="text-2xl font-semibold mb-4">Style Transfer Examples</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <img src="/images/stylealign/stylealign_ex1.png" alt="StyleAlign Example 1" className="w-full h-auto rounded-lg shadow-md mb-2" />
+              <img src={`${import.meta.env.BASE_URL}images/stylealign/stylealign_ex1.png`} alt="StyleAlign Example 1" className="w-full h-auto rounded-lg shadow-md mb-2" />
               <p className="text-sm text-gray-400">Reference image (left side) had the prompt: "A drawing of a sea", and the target image got the prompt "A boat". </p>
             </div>
             <div>
-              <img src="/images/stylealign/stylealign_ex2.png" alt="StyleAlign Example 2" className="w-full h-auto rounded-lg shadow-md mb-2" />
+              <img src={`${import.meta.env.BASE_URL}/images/stylealign/stylealign_ex2.png`} alt="StyleAlign Example 2" className="w-full h-auto rounded-lg shadow-md mb-2" />
               <p className="text-sm text-gray-400">Reference prompt: "Watercolor painting of a desert highway". Target prompt: "A blue car".</p>
             </div>
             <div>
-              <img src="/images/stylealign/stylealign_ex3.png" alt="StyleAlign Example 3" className="w-full h-auto rounded-lg shadow-md mb-2" />
+              <img src={`${import.meta.env.BASE_URL}/images/stylealign/stylealign_ex3.png`} alt="StyleAlign Example 3" className="w-full h-auto rounded-lg shadow-md mb-2" />
               <p className="text-sm text-gray-400">Reference prompt: "A 1920s photograph of grassy hills". Target prompt: "An airplane".</p>
             </div>
           </div>
