@@ -1,20 +1,12 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
+import { MailIcon, LinkedinIcon, PhoneIcon, FileIcon } from 'lucide-react';
 
 const ContactPage = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-    // Here you would typically send the data to a server
-  };
-
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <Header isStartPage={false} />
@@ -26,52 +18,32 @@ const ContactPage = () => {
             <AvatarFallback>VA</AvatarFallback>
           </Avatar>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              {...register("email", { required: "Email is required" })}
-              className="bg-gray-800 text-white"
-            />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
-          </div>
-          <div>
-            <Label htmlFor="linkedin">LinkedIn</Label>
-            <Input
-              id="linkedin"
-              type="url"
-              {...register("linkedin", { required: "LinkedIn profile is required" })}
-              className="bg-gray-800 text-white"
-            />
-            {errors.linkedin && <p className="text-red-500 text-sm mt-1">{errors.linkedin.message}</p>}
-          </div>
-          <div>
-            <Label htmlFor="phone">Phone Number</Label>
-            <Input
-              id="phone"
-              type="tel"
-              {...register("phone", { required: "Phone number is required" })}
-              className="bg-gray-800 text-white"
-            />
-            {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
-          </div>
-          <div>
-            <Label htmlFor="cv">Download CV</Label>
-            <Button
-              id="cv"
-              type="button"
-              onClick={() => window.open('/path-to-your-cv.pdf', '_blank')}
-              className="w-full bg-blue-600 hover:bg-blue-700"
-            >
-              Download CV
-            </Button>
-          </div>
-          <Button type="submit" className="w-full bg-green-600 hover:bg-green-700">
-            Send
-          </Button>
-        </form>
+        <Card className="bg-gray-800 border-gray-700">
+          <CardContent className="space-y-4 pt-6">
+            <div className="flex items-center space-x-4">
+              <MailIcon className="text-blue-400" />
+              <span>vilgot.ast@gmail.com</span>
+            </div>
+            <div className="flex items-center space-x-4">
+              <LinkedinIcon className="text-blue-400" />
+              <a href="https://www.linkedin.com/in/vilgot-åström-1124401b5" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
+                Vilgot Åström
+              </a>
+            </div>
+            <div className="flex items-center space-x-4">
+              <PhoneIcon className="text-blue-400" />
+              <span>+46 70 123 45 67</span>
+            </div>
+            <div className="pt-4">
+              <Button
+                onClick={() => window.open('/path-to-your-cv.pdf', '_blank')}
+                className="w-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center"
+              >
+                <FileIcon className="mr-2" /> Download CV
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
       </main>
       <Footer />
     </div>
