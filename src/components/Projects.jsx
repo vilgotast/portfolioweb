@@ -54,6 +54,7 @@ const Projects = ({ showPreview = false }) => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
+              className={showPreview && index >= 2 ? "relative" : ""}
             >
               <motion.div
                 whileHover={{ 
@@ -90,21 +91,21 @@ const Projects = ({ showPreview = false }) => {
                   </CardContent>
                 </Card>
               </motion.div>
+              {showPreview && index >= 2 && (
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none"></div>
+              )}
             </motion.div>
           ))}
         </div>
         {showPreview && (
-          <>
-            <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none"></div>
-            <div className="mt-12 text-center relative z-10">
-              <Button 
-                onClick={() => navigate('/projects')}
-                className="bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300"
-              >
-                Show All Projects
-              </Button>
-            </div>
-          </>
+          <div className="mt-12 text-center relative z-10">
+            <Button 
+              onClick={() => navigate('/projects')}
+              className="bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300"
+            >
+              Show All Projects
+            </Button>
+          </div>
         )}
       </div>
     </section>
