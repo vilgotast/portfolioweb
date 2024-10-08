@@ -97,7 +97,7 @@ const Projects = ({ showPreview = false }) => {
                   ${index === displayedProjects.length - 1 ? 'block' : 'hidden md:block'}
                   ${index === displayedProjects.length - 2 ? 'hidden md:block' : ''}
                   ${index < displayedProjects.length - 2 ? 'hidden' : ''}
-                  md:opacity-100 md:group-hover:opacity-0
+                  opacity-100 md:group-hover:opacity-0
                 `}></div>
               )}
             </motion.div>
