@@ -94,10 +94,10 @@ const Projects = ({ showPreview = false }) => {
               {showPreview && (
                 <div className={`absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none 
                   transition-opacity duration-300
-                  ${index === displayedProjects.length - 1 ? 'block md:hidden' : ''}
-                  ${index === displayedProjects.length - 2 || index === displayedProjects.length - 1 ? 'hidden md:block' : ''}
-                  ${index < displayedProjects.length - 2 ? 'hidden' : ''}
-                  opacity-100 md:group-hover:opacity-0
+                  ${index === displayedProjects.length - 1 ? 'opacity-100 md:opacity-0' : ''}
+                  ${index === displayedProjects.length - 2 ? 'opacity-0 md:opacity-100' : ''}
+                  ${index < displayedProjects.length - 2 ? 'opacity-0' : ''}
+                  group-hover:opacity-0
                 `}></div>
               )}
             </motion.div>
