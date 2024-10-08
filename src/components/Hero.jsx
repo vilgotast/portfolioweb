@@ -13,13 +13,13 @@ const Hero = () => {
           className="max-w-3xl mx-auto text-center"
         >
           <h1 className="text-5xl font-extrabold mb-6 leading-tight">
-            Exploring the Frontiers of
+            Discovering methods and applications for
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">
               Artificial Intelligence
             </span>
           </h1>
           <p className="text-xl mb-8 leading-relaxed text-gray-300">
-            Pushing boundaries and creating innovative AI solutions through cutting-edge projects and research
+            Trying new projects and ideas to learn more about the methods used in AI.
           </p>
           <motion.div
             whileHover={{ scale: 1.05 }}

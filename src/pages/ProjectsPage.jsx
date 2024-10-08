@@ -11,26 +11,26 @@ import Footer from '../components/Footer';
 const projectData = [
   {
     title: "BenBot",
-    description: "A chatbot project with a live demo.",
-    tags: ["Chatbot", "AI", "NLP"],
+    description: "A proof-of-concept chatbot using server-side inference.",
+    tags: ["Chatbot", "Huggingface"],
     link: "/projects/benbot",
   },
   {
     title: "SumoTraffic",
-    description: "Traffic simulation project.",
-    tags: ["Simulation", "Traffic Management"],
+    description: "Traffic manegement through multi-agent reinforcement learning.",
+    tags: ["Simulation", "Reinforement Learning", "DQN", "Multi-agent"],
     link: "/projects/sumotraffic",
   },
   {
     title: "StyleAlign",
-    description: "Style transfer project with Google Colab integration.",
-    tags: ["Machine Learning", "Computer Vision", "Google Colab"],
+    description: "Style transfer project using pretrained diffusion model.",
+    tags: ["Diffusion", "Style Transfer"],
     link: "/projects/stylealign",
   },
   {
     title: "Gym Racecar",
     description: "A reinforcement learning project for racing car simulation.",
-    tags: ["Reinforcement Learning", "Simulation"],
+    tags: ["Reinforcement Learning", "Q-learning"],
     link: "/projects/gymracecar",
   },
   {
@@ -39,20 +39,12 @@ const projectData = [
     tags: ["Audio Generation", "Deep Learning"],
     link: "/projects/deepbirdsound",
   },
-  {
-    title: "Flask Chatbot",
-    description: "A simple chatbot implemented using Flask with a Python backend and HTML frontend.",
-    tags: ["Python", "Flask", "HTML", "JavaScript"],
-    link: "/projects/chatbot",
-  },
 ];
 
 const ongoingProjects = [
-  "Improving natural language understanding capabilities for BenBot",
-  "Implementing advanced traffic light algorithms in SumoTraffic",
-  "Experimenting with new artistic styles for StyleAlign",
-  "Optimizing the reward function for smoother driving in Gym Racecar",
-  "Collecting and preprocessing bird sound datasets for Deep Birdsound Generator",
+  "SafetySam: A travel-advice chatbot using RAG",
+  "Text-to-SQL project: Natural language to SQL query",
+  "Volleyball metric improvement for players and coaches"
 ];
 
 const ProjectsPage = () => {

@@ -9,38 +9,32 @@ const projectData = [
   {
     title: "BenBot",
     description: "A chatbot project with a live demo.",
-    tags: ["Chatbot", "AI", "NLP"],
+    tags: ["Chatbot", "Huggingface", "Flask"],
     link: "/projects/benbot",
   },
   {
     title: "SumoTraffic",
-    description: "Traffic simulation project.",
-    tags: ["Simulation", "Traffic Management"],
+    description: "mMlti-agent reinforcement learning solution to a traffic simulation.",
+    tags: ["Multi Agent", "DQN"],
     link: "/projects/sumotraffic"
   },
   {
     title: "StyleAlign",
-    description: "Style transfer project with Google Colab integration.",
-    tags: ["Machine Learning", "Computer Vision", "Google Colab"],
+    description: "Style transfer using shared attention.",
+    tags: ["Style transfer", "Image generation", "Attention processing"],
     link: "/projects/stylealign"
   },
   {
     title: "Gym Racecar",
-    description: "A reinforcement learning project for racing car simulation.",
-    tags: ["Reinforcement Learning", "Simulation"],
+    description: "A reinforcement learning project for racing car environment",
+    tags: ["Reinforcement Learning", "Q-learning", "OpenAI Gym"],
     link: "/projects/gymracecar"
   },
   {
     title: "Deep Birdsound Generator",
     description: "An experimental project for generating bird sounds (currently in development).",
-    tags: ["Audio Generation", "Deep Learning"],
+    tags: ["Audio Generation", "Deep Learning", "Diffusion"],
     link: "/projects/deepbirdsound"
-  },
-  {
-    title: "Flask Chatbot",
-    description: "A simple chatbot implemented using Flask with a Python backend and HTML frontend.",
-    tags: ["Python", "Flask", "HTML", "JavaScript"],
-    link: "/projects/chatbot"
   }
 ];
 
@@ -50,7 +44,7 @@ const Projects = () => {
   return (
     <section className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16 text-blue-200">Innovative AI Projects</h2>
+        <h2 className="text-4xl font-bold text-center mb-16 text-blue-200">AI Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {projectData.map((project, index) => (
             <motion.div

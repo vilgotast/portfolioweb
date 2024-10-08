@@ -28,7 +28,7 @@ const ContactPage = () => {
                 </div>
                 <div className="flex items-center space-x-4">
                   <PhoneIcon className="text-blue-400" />
-                  <span>+46 70 123 45 67</span>
+                  <span>+46 70 790 65 38</span>
                 </div>
                 <div className="pt-4">
                   <Button
@@ -41,7 +41,7 @@ const ContactPage = () => {
                 </div>
               </div>
               <Avatar className="h-32 w-32 ml-4">
-                <AvatarImage src="/path-to-your-image.jpg" alt="Profile Picture" />
+                <AvatarImage src={`${import.meta.env.BASE_URL}/images/contact/profile_pic.jpg`} alt="Profile Picture" />
                 <AvatarFallback>VA</AvatarFallback>
               </Avatar>
             </div>
