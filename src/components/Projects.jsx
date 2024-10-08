@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { ArrowRightIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from "@/components/ui/button";
 
 const projectData = [
   {
@@ -38,15 +39,16 @@ const projectData = [
   }
 ];
 
-const Projects = () => {
+const Projects = ({ showPreview = false }) => {
   const navigate = useNavigate();
+  const displayedProjects = showPreview ? projectData.slice(0, 4) : projectData;
 
   return (
     <section className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-16 text-blue-200">AI Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {projectData.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
@@ -91,6 +93,16 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+        {showPreview && (
+          <div className="mt-12 text-center">
+            <Button 
+              onClick={() => navigate('/projects')}
+              className="bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300"
+            >
+              Show All Projects
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

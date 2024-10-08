@@ -8,9 +8,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-900 font-sans text-gray-100">
       <Header isStartPage={true} />
-      <main className="pt-32"> {/* Increased padding-top */}
+      <main className="pt-16"> {/* Reduced padding-top */}
         <Hero />
-        <Projects />
+        <Projects showPreview={true} /> {/* Added showPreview prop */}
       </main>
       <Footer />
     </div>
