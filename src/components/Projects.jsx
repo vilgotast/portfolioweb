@@ -95,7 +95,7 @@ const Projects = ({ showPreview = false }) => {
                 <div className={`absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none 
                   transition-opacity duration-300
                   ${index === displayedProjects.length - 1 ? 'block md:hidden' : ''}
-                  ${index === displayedProjects.length - 2 ? 'hidden md:block' : ''}
+                  ${index === displayedProjects.length - 2 || index === displayedProjects.length - 1 ? 'hidden md:block' : ''}
                   ${index < displayedProjects.length - 2 ? 'hidden' : ''}
                   opacity-100 md:group-hover:opacity-0
                 `}></div>
