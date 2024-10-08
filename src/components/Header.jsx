@@ -25,11 +25,6 @@ const Header = ({ isStartPage = false }) => {
           </nav>
           <div className="hidden md:flex space-x-2 ml-4">
             <Button variant="outline" size="icon" className="text-gray-300 hover:text-blue-300 hover:border-blue-300" asChild>
-              <a href="https://github.com/vilgotast" target="_blank" rel="noopener noreferrer">
-                <GithubIcon className="h-4 w-4" />
-              </a>
-            </Button>
-            <Button variant="outline" size="icon" className="text-gray-300 hover:text-blue-300 hover:border-blue-300" asChild>
               <a href="https://www.linkedin.com/in/vilgot-åström-1124401b5" target="_blank" rel="noopener noreferrer">
                 <LinkedinIcon className="h-4 w-4" />
               </a>
