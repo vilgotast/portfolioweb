@@ -93,9 +93,11 @@ const Projects = ({ showPreview = false }) => {
               </motion.div>
               {showPreview && (
                 <div className={`absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none 
-                  md:opacity-100 md:group-hover:opacity-0 transition-opacity duration-300
-                  ${index === 2 ? 'block md:hidden' : ''}
-                  ${index === 3 ? 'block' : 'hidden md:block'}
+                  transition-opacity duration-300
+                  ${index === displayedProjects.length - 1 ? 'block' : 'hidden md:block'}
+                  ${index === displayedProjects.length - 2 ? 'hidden md:block' : ''}
+                  ${index < displayedProjects.length - 2 ? 'hidden' : ''}
+                  md:opacity-100 md:group-hover:opacity-0
                 `}></div>
               )}
             </motion.div>
