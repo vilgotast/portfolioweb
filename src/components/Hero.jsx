@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { Rocket, Zap, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
   const navigate = useNavigate();
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  const smoothX = useSpring(mouseX, { damping: 50, stiffness: 300 });
+  const smoothY = useSpring(mouseY, { damping: 50, stiffness: 300 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const { clientX, clientY } = e;
+      const { innerWidth, innerHeight } = window;
+      const x = clientX / innerWidth - 0.5;
+      const y = clientY / innerHeight - 0.5;
+      mouseX.set(x * 100);
+      mouseY.set(y * 100);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -30,26 +49,38 @@ const Hero = () => {
     <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white py-32 relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div
+        style={{
+          x: smoothX,
+          y: smoothY,
+        }}
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.2, 0.3],
         }}
         transition={{
-          duration: 8,
-          repeat: Infinity,
-          repeatType: "reverse"
+          scale: {
+            duration: 8,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }
         }}
         className="absolute top-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
       />
       <motion.div
+        style={{
+          x: smoothX,
+          y: smoothY,
+        }}
         animate={{
           scale: [1, 1.3, 1],
           opacity: [0.2, 0.1, 0.2],
         }}
         transition={{
-          duration: 10,
-          repeat: Infinity,
-          repeatType: "reverse"
+          scale: {
+            duration: 10,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }
         }}
         className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
       />
