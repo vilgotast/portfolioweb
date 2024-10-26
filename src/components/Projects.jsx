@@ -41,7 +41,7 @@ const projectData = [
 
 const Projects = ({ showPreview = false }) => {
   const navigate = useNavigate();
-  const displayedProjects = showPreview ? projectData.slice(0, 3) : projectData;
+  const displayedProjects = showPreview ? projectData.slice(0, 4) : projectData;
 
   return (
     <section className="py-20 bg-gray-900 relative">
@@ -54,7 +54,7 @@ const Projects = ({ showPreview = false }) => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="relative group"
+              className={`relative ${showPreview ? 'group' : ''}`}
             >
               <motion.div
                 whileHover={{ 
@@ -91,8 +91,19 @@ const Projects = ({ showPreview = false }) => {
                   </CardContent>
                 </Card>
               </motion.div>
-              {showPreview && index === displayedProjects.length - 1 && (
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0"></div>
+              {showPreview && (
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none 
+                    transition-opacity duration-300
+                    ${index >= displayedProjects.length - 1
+                      ? 'opacity-100 md:opacity-100'
+                      : 'opacity-0'}
+                    ${index >= displayedProjects.length - 2 
+                      ? 'opacity-0 md:opacity-100'
+                      : ''} 
+                    group-hover:opacity-0
+                  `}
+                ></div>
               )}
             </motion.div>
           ))}
