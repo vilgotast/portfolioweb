@@ -1,19 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import { motion, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useScroll, useTransform, animate } from "framer-motion";
 import { Rocket, Zap, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+
+const NUM_PARTICLES = 20;
 
 const Hero = () => {
   const navigate = useNavigate();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const { scrollY } = useScroll();
+  const particles = useRef(Array.from({ length: NUM_PARTICLES }).map(() => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 2,
+    vy: (Math.random() - 0.5) * 2,
+  }))).current;
   
   const smoothX = useSpring(mouseX, { damping: 50, stiffness: 300 });
   const smoothY = useSpring(mouseY, { damping: 50, stiffness: 300 });
 
-  // Transform scroll position to rotation and scale values
   const rotate = useTransform(scrollY, [0, 1000], [0, 360]);
   const scale = useTransform(scrollY, [0, 500], [1, 1.5]);
   const opacity = useTransform(scrollY, [0, 300], [0.3, 0]);
@@ -31,6 +38,41 @@ const Hero = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
+
+  useEffect(() => {
+    let animationFrameId;
+    
+    const updateParticles = () => {
+      particles.forEach(particle => {
+        // Add some fluid-like motion
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        
+        // Bounce off walls with damping
+        if (particle.x < 0 || particle.x > window.innerWidth) {
+          particle.vx *= -0.8;
+          particle.x = Math.max(0, Math.min(window.innerWidth, particle.x));
+        }
+        if (particle.y < 0 || particle.y > window.innerHeight) {
+          particle.vy *= -0.8;
+          particle.y = Math.max(0, Math.min(window.innerHeight, particle.y));
+        }
+        
+        // Add slight random movement
+        particle.vx += (Math.random() - 0.5) * 0.2;
+        particle.vy += (Math.random() - 0.5) * 0.2;
+        
+        // Apply drag
+        particle.vx *= 0.99;
+        particle.vy *= 0.99;
+      });
+      
+      animationFrameId = requestAnimationFrame(updateParticles);
+    };
+    
+    updateParticles();
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -53,49 +95,31 @@ const Hero = () => {
 
   return (
     <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white py-32 relative overflow-hidden">
-      {/* Animated background elements */}
-      <motion.div
-        style={{
-          x: smoothX,
-          y: smoothY,
-          rotate,
-          scale,
-          opacity,
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.2, 0.3],
-        }}
-        transition={{
-          scale: {
-            duration: 8,
+      {/* Animated particles */}
+      {particles.map((particle, index) => (
+        <motion.div
+          key={index}
+          animate={{
+            x: particle.x,
+            y: particle.y,
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.3, 0.2],
+          }}
+          transition={{
+            duration: 3,
             repeat: Infinity,
-            repeatType: "reverse"
-          }
-        }}
-        className="absolute top-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
-      />
-      <motion.div
-        style={{
-          x: smoothX,
-          y: smoothY,
-          rotate: rotate.get() * -1, // Rotate in opposite direction
-          scale,
-          opacity,
-        }}
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.1, 0.2],
-        }}
-        transition={{
-          scale: {
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }
-        }}
-        className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
-      />
+            repeatType: "reverse",
+            ease: "linear"
+          }}
+          className="absolute w-32 h-32 rounded-full"
+          style={{
+            background: `radial-gradient(circle, ${
+              index % 2 === 0 ? 'rgba(59, 130, 246, 0.1)' : 'rgba(147, 51, 234, 0.1)'
+            } 0%, transparent 70%)`,
+            filter: 'blur(8px)',
+          }}
+        />
+      ))}
 
       <div className="container mx-auto px-4 relative">
         <motion.div
