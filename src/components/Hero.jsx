@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion";
 import { Rocket, Zap, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,9 +8,15 @@ const Hero = () => {
   const navigate = useNavigate();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const { scrollY } = useScroll();
   
   const smoothX = useSpring(mouseX, { damping: 50, stiffness: 300 });
   const smoothY = useSpring(mouseY, { damping: 50, stiffness: 300 });
+
+  // Transform scroll position to rotation and scale values
+  const rotate = useTransform(scrollY, [0, 1000], [0, 360]);
+  const scale = useTransform(scrollY, [0, 500], [1, 1.5]);
+  const opacity = useTransform(scrollY, [0, 300], [0.3, 0]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -52,6 +58,9 @@ const Hero = () => {
         style={{
           x: smoothX,
           y: smoothY,
+          rotate,
+          scale,
+          opacity,
         }}
         animate={{
           scale: [1, 1.2, 1],
@@ -70,6 +79,9 @@ const Hero = () => {
         style={{
           x: smoothX,
           y: smoothY,
+          rotate: rotate.get() * -1, // Rotate in opposite direction
+          scale,
+          opacity,
         }}
         animate={{
           scale: [1, 1.3, 1],
