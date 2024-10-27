@@ -12,9 +12,9 @@ const ContactPage = () => {
       <Header isStartPage={false} />
       <main className="container mx-auto px-4 py-32 max-w-2xl">
         <h1 className="text-4xl font-bold mb-8 text-center">Contact Me</h1>
-        <Card className="bg-gray-800 border-gray-700 overflow-hidden">
+        <Card className="bg-gray-800 border-gray-700">
           <CardContent className="space-y-4 pt-6">
-            <div className="flex justify-between items-start">
+            <div className="flex justify-between items-start gap-4">
               <div className="space-y-4 flex-grow">
                 <div className="flex items-center space-x-4">
                   <MailIcon className="text-blue-400" />
@@ -41,7 +41,7 @@ const ContactPage = () => {
                 </div>
               </div>
               <div className="flex-shrink-0">
-                <Avatar className="h-32 w-32">
+                <Avatar className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28">
                   <AvatarImage src={`${import.meta.env.BASE_URL}/images/contact/profile_pic.jpg`} alt="Profile Picture" className="object-cover" />
                   <AvatarFallback>VA</AvatarFallback>
                 </Avatar>
