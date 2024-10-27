@@ -41,7 +41,7 @@ const ContactPage = () => {
                 </div>
               </div>
               <div className="flex-shrink-0">
-                <Avatar className="h-20 w-20 sm:h-24 sm:w-24 md:h-28 md:w-28">
+                <Avatar className="h-20 w-20 sm:h-24 sm:w-24 md:h-32 md:w-32">
                   <AvatarImage src={`${import.meta.env.BASE_URL}/images/contact/profile_pic.jpg`} alt="Profile Picture" className="object-cover" />
                   <AvatarFallback>VA</AvatarFallback>
                 </Avatar>
