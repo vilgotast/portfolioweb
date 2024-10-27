@@ -61,18 +61,18 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1 className="text-5xl font-extrabold mb-6 leading-tight">
-            Discovering methods and applications for
+            Hi, I'm
             <motion.span 
               className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              Artificial Intelligence
+              Vilgot Åström
             </motion.span>
           </motion.h1>
 
           <motion.p className="text-xl mb-8 leading-relaxed text-gray-300">
-            Trying new projects and ideas to learn more about the methods used in AI.
+            Exploring the frontiers of AI through innovative research and development
           </motion.p>
 
           <motion.div className="flex gap-4 justify-center">
