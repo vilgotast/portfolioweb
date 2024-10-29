@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Button } from "@/components/ui/button";
 import ProjectContent from '../components/ProjectContent';
+import DrawingCanvas from '../components/DrawingCanvas';
 
 const ProjectTemplate = () => {
   const { projectId } = useParams();
@@ -172,6 +173,24 @@ const projectDetails = {
           <h3 className="text-xl font-semibold mb-2">Project Status</h3>
           <p>This project is currently in the research and development phase. Stay tuned for updates and preliminary results!</p>
         </div>
+      </>
+    )
+  },
+  drawingrecognition: {
+    title: "Drawing Recognition",
+    description: "Real-time drawing recognition using ONNX model in browser.",
+    content: (
+      <>
+        <p>This project demonstrates the capabilities of running machine learning models directly in the browser using ONNX Runtime. Draw anything in the canvas below, and the model will try to recognize what you've drawn in real-time!</p>
+        <h3 className="text-xl font-semibold mt-4 mb-2">Try it yourself:</h3>
+        <DrawingCanvas />
+        <h3 className="text-xl font-semibold mt-8 mb-2">How it works:</h3>
+        <ul className="list-disc list-inside mb-4">
+          <li>The model was trained on the QuickDraw dataset and converted to ONNX format</li>
+          <li>ONNX Runtime Web enables running the model directly in your browser</li>
+          <li>The drawing is preprocessed in real-time to match the model's input format</li>
+          <li>Predictions are made locally without any server requests</li>
+        </ul>
       </>
     )
   }

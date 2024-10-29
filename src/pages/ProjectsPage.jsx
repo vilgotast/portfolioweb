@@ -34,6 +34,12 @@ const projectData = [
     link: "/projects/gymracecar",
   },
   {
+    title: "Drawing Recognition",
+    description: "Real-time drawing recognition using ONNX model in browser.",
+    tags: ["ONNX", "Computer Vision", "Interactive"],
+    link: "/projects/drawingrecognition",
+  },
+  {
     title: "Deep Birdsound Generator",
     description: "An experimental project for generating bird sounds (currently in development).",
     tags: ["Audio Generation", "Deep Learning"],
