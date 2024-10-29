@@ -21,9 +21,11 @@ const AboutMe = () => {
         >
           <h2 className="text-3xl font-bold mb-6 text-blue-200">About Me</h2>
           <p className="text-lg text-gray-300 mb-8">
-            I'm a passionate AI researcher and developer focused on exploring the frontiers of artificial intelligence. 
-            My work spans across various domains of AI, from reinforcement learning to neural networks, 
-            always seeking innovative solutions to complex problems.
+            I'm passionate about AI and exploring its frontiers through interesting projects.
+            I love learning about new techniques and often want to try implementing them into something concrete and functional to see the theory work in practice. 
+            I wanted a place to share some of my projects, so I created this page! 
+            My work spans across various domains of AI, but I especially enjoy NLP, 
+            reinforcement learning, and neural networks.
           </p>
         </motion.div>
 

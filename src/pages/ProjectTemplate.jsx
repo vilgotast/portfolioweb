@@ -39,7 +39,7 @@ const ProjectTemplate = () => {
 const projectDetails = {
   benbot: {
     title: "BenBot",
-    description: "BenBot is proof-of-concept project with a live demo of server-sede inference.",
+    description: "BenBot is proof-of-concept project with a live demo of server-side inference.",
     demoLink: "https://benchat-fbt5.onrender.com/",
     content: (
       <>
@@ -138,7 +138,7 @@ const projectDetails = {
     content: (
       <>
         <p>This project is buildt in the classic <a href="https://www.gymlibrary.dev/environments/box2d/car_racing/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline"> Open AI Gym</a> environment.
-        It implements a simple yet powerful Q-learning approach and is rewarded by moving forward and staying on the track. A quick demo can be seen below. </p>
+        It implements a simple yet powerful Q-learning approach and is rewarded by moving forward and staying on the track. A quick demo can be seen below. It's not the world's fastest racer, but it gets the job done!</p>
         <h3 className="text-xl font-semibold mt-4 mb-2">Key Features:</h3>
         <ul className="list-disc list-inside mb-4">
           <li>Q-Learning</li>

@@ -44,7 +44,8 @@ const projectData = [
 const ongoingProjects = [
   "SafetySam: A travel-advice chatbot using RAG",
   "Text-to-SQL project: Natural language to SQL query",
-  "Volleyball metric improvement for players and coaches"
+  "Volleyball metric improvement for players and coaches",
+  "Real-time drawing guesser using CNNs"
 ];
 
 const ProjectsPage = () => {
