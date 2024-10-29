@@ -2,11 +2,28 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eraser, Download } from 'lucide-react';
+import * as ort from 'onnxruntime-web';
 
 const DrawingCanvas = () => {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [prediction, setPrediction] = useState(null);
+  const [session, setSession] = useState(null);
+
+  useEffect(() => {
+    const initModel = async () => {
+      try {
+        // TODO: Replace with your actual model path
+        const modelPath = '/models/drawing_recognition.onnx';
+        const session = await ort.InferenceSession.create(modelPath);
+        setSession(session);
+      } catch (error) {
+        console.error('Failed to load ONNX model:', error);
+      }
+    };
+
+    initModel();
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -16,6 +33,36 @@ const DrawingCanvas = () => {
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
   }, []);
+
+  const preprocessCanvas = async () => {
+    const canvas = canvasRef.current;
+    // TODO: Implement preprocessing according to your model's requirements
+    // Example preprocessing steps:
+    // 1. Resize to match model input size
+    // 2. Convert to grayscale if needed
+    // 3. Normalize pixel values
+    // 4. Convert to tensor format
+    return new Float32Array(/* your preprocessed data */);
+  };
+
+  const predict = async () => {
+    if (!session) return;
+
+    try {
+      const inputData = await preprocessCanvas();
+      // TODO: Replace with your model's input name and shape
+      const inputTensor = new ort.Tensor('float32', inputData, [1, 1, 28, 28]);
+      const feeds = { input: inputTensor };
+      
+      const outputMap = await session.run(feeds);
+      const output = outputMap[Object.keys(outputMap)[0]];
+      // TODO: Process output according to your model's format
+      setPrediction("Predicted class: " + output.data[0]);
+    } catch (error) {
+      console.error('Prediction failed:', error);
+      setPrediction("Error during prediction");
+    }
+  };
 
   const startDrawing = (e) => {
     const canvas = canvasRef.current;
@@ -49,9 +96,8 @@ const DrawingCanvas = () => {
       ctx.closePath();
       setIsDrawing(false);
       
-      // TODO: Add model prediction here
-      // For now, we'll just set a placeholder prediction
-      setPrediction("Loading model...");
+      // Make prediction when drawing stops
+      predict();
     }
   };
 
