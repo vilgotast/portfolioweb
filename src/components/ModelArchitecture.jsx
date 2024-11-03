@@ -1,80 +1,89 @@
 import React from 'react';
 import { Card } from "@/components/ui/card";
+import { ArrowRight } from 'lucide-react';
 
 const ModelArchitecture = () => {
   return (
     <Card className="p-6 bg-gray-800 border-gray-700">
       <h3 className="text-xl font-semibold mb-4 text-blue-300">Model Architecture</h3>
       <div className="overflow-x-auto">
-        <div className="flex items-center space-x-4 min-w-[600px] p-4">
-          {/* Input Layer */}
-          <div className="flex flex-col items-center">
-            <div className="w-16 h-16 bg-blue-500/20 border border-blue-500 rounded flex items-center justify-center">
-              <span className="text-xs text-center">Input<br/>28x28x1</span>
-            </div>
-            <span className="text-xs mt-2">Input</span>
-          </div>
-          
-          {/* Conv1 + ReLU + Pool */}
-          <div className="flex flex-col items-center">
-            <div className="relative w-16 h-16 bg-green-500/20 border border-green-500 rounded flex items-center justify-center">
-              <span className="text-xs text-center">Conv1<br/>3x3x32</span>
-              <div className="absolute -bottom-3 w-12 h-3 bg-purple-500/20 border border-purple-500 rounded-sm">
-                <span className="text-[10px]">ReLU+Pool</span>
+        <div className="flex flex-col space-y-6 min-w-[600px] p-4">
+          {/* Layer Groups */}
+          <div className="grid grid-cols-5 gap-4">
+            {/* Input Processing */}
+            <div className="col-span-1">
+              <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg p-4 border border-blue-500">
+                <h4 className="text-blue-300 font-semibold mb-2">Input</h4>
+                <div className="text-sm text-gray-300">
+                  <p>28 x 28</p>
+                  <p>Grayscale</p>
+                  <p>1 Channel</p>
+                </div>
               </div>
             </div>
-            <span className="text-xs mt-4">14x14x32</span>
-          </div>
 
-          {/* Conv2 + ReLU + Pool */}
-          <div className="flex flex-col items-center">
-            <div className="relative w-16 h-16 bg-green-500/20 border border-green-500 rounded flex items-center justify-center">
-              <span className="text-xs text-center">Conv2<br/>3x3x64</span>
-              <div className="absolute -bottom-3 w-12 h-3 bg-purple-500/20 border border-purple-500 rounded-sm">
-                <span className="text-[10px]">ReLU+Pool</span>
+            {/* Feature Extraction */}
+            <div className="col-span-2">
+              <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg p-4 border border-green-500">
+                <h4 className="text-green-300 font-semibold mb-2">Feature Extraction</h4>
+                <div className="space-y-3">
+                  <div className="text-sm text-gray-300">
+                    <p className="font-medium">Conv1 + ReLU + MaxPool</p>
+                    <p>32 filters (3x3)</p>
+                    <p>Output: 14x14x32</p>
+                  </div>
+                  <div className="text-sm text-gray-300">
+                    <p className="font-medium">Conv2 + ReLU + MaxPool</p>
+                    <p>64 filters (3x3)</p>
+                    <p>Output: 7x7x64</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <span className="text-xs mt-4">7x7x64</span>
-          </div>
 
-          {/* Flatten */}
-          <div className="flex flex-col items-center">
-            <div className="w-16 h-16 bg-yellow-500/20 border border-yellow-500 rounded flex items-center justify-center">
-              <span className="text-xs text-center">Flatten<br/>3136</span>
-            </div>
-            <span className="text-xs mt-2">Flatten</span>
-          </div>
-
-          {/* FC1 + ReLU */}
-          <div className="flex flex-col items-center">
-            <div className="relative w-16 h-16 bg-red-500/20 border border-red-500 rounded flex items-center justify-center">
-              <span className="text-xs text-center">FC1<br/>128</span>
-              <div className="absolute -bottom-3 w-12 h-3 bg-purple-500/20 border border-purple-500 rounded-sm">
-                <span className="text-[10px]">ReLU</span>
+            {/* Flatten */}
+            <div className="col-span-1">
+              <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 rounded-lg p-4 border border-yellow-500">
+                <h4 className="text-yellow-300 font-semibold mb-2">Flatten</h4>
+                <div className="text-sm text-gray-300">
+                  <p>7 x 7 x 64</p>
+                  <p>↓</p>
+                  <p>3,136 features</p>
+                </div>
               </div>
             </div>
-            <span className="text-xs mt-4">Dense 128</span>
-          </div>
 
-          {/* FC2 + Softmax */}
-          <div className="flex flex-col items-center">
-            <div className="relative w-16 h-16 bg-red-500/20 border border-red-500 rounded flex items-center justify-center">
-              <span className="text-xs text-center">FC2<br/>3</span>
-              <div className="absolute -bottom-3 w-12 h-3 bg-orange-500/20 border border-orange-500 rounded-sm">
-                <span className="text-[10px]">Softmax</span>
+            {/* Classification */}
+            <div className="col-span-1">
+              <div className="bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-lg p-4 border border-purple-500">
+                <h4 className="text-purple-300 font-semibold mb-2">Classification</h4>
+                <div className="text-sm text-gray-300">
+                  <p>Dense (128)</p>
+                  <p>ReLU</p>
+                  <p>Dense (3)</p>
+                  <p>Softmax</p>
+                </div>
               </div>
             </div>
-            <span className="text-xs mt-4">Output</span>
+          </div>
+
+          {/* Data Flow Arrows */}
+          <div className="flex justify-center space-x-4">
+            <ArrowRight className="text-blue-400" />
+            <ArrowRight className="text-green-400" />
+            <ArrowRight className="text-yellow-400" />
+            <ArrowRight className="text-purple-400" />
           </div>
         </div>
       </div>
-      <div className="mt-4 text-sm text-gray-400">
-        <p>The model consists of:</p>
-        <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>Two convolutional layers (32 and 64 filters) with ReLU activation and max pooling</li>
-          <li>Flatten layer to convert 2D features to 1D</li>
-          <li>Two fully connected layers (128 neurons and 3 output classes)</li>
-          <li>Final softmax activation for class probabilities</li>
+
+      <div className="mt-6 text-sm text-gray-400">
+        <p className="font-medium mb-2">Architecture Overview:</p>
+        <ul className="list-disc list-inside space-y-1">
+          <li>Input layer accepts 28x28 grayscale images</li>
+          <li>Two convolutional blocks with ReLU activation and max pooling extract features</li>
+          <li>Flatten layer converts spatial features to a 1D vector</li>
+          <li>Two dense layers with ReLU and Softmax produce final class probabilities</li>
         </ul>
       </div>
     </Card>
