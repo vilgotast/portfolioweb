@@ -13,27 +13,27 @@ const DatasetSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <div className="bg-gray-700 p-4 rounded-lg">
           <img 
-            src={`${import.meta.env.BASE_URL}/images/quickdraw/helicopter.png`} 
-            alt="Example of helicopter drawing" 
+            src={`${import.meta.env.BASE_URL}/images/drawing_recognition/helicopter.png`} 
+            alt="Example of helicopter drawings" 
             className="w-full h-auto mb-2"
           />
-          <p className="text-center text-gray-300">Helicopter</p>
+          <p className="text-center text-gray-300">Helicopter drawings</p>
         </div>
         <div className="bg-gray-700 p-4 rounded-lg">
           <img 
-            src={`${import.meta.env.BASE_URL}/images/quickdraw/spoon.png`} 
-            alt="Example of spoon drawing" 
+            src={`${import.meta.env.BASE_URL}/images/drawing_recognition/spoon.png`} 
+            alt="Example of spoon drawings" 
             className="w-full h-auto mb-2"
           />
-          <p className="text-center text-gray-300">Spoon</p>
+          <p className="text-center text-gray-300">Spoon drawings</p>
         </div>
         <div className="bg-gray-700 p-4 rounded-lg">
           <img 
-            src={`${import.meta.env.BASE_URL}/images/quickdraw/bird.png`} 
-            alt="Example of bird drawing" 
+            src={`${import.meta.env.BASE_URL}/images/drawing_recognition/bird.png`} 
+            alt="Example of bird drawings" 
             className="w-full h-auto mb-2"
           />
-          <p className="text-center text-gray-300">Bird</p>
+          <p className="text-center text-gray-300">Bird drawings</p>
         </div>
       </div>
       
