@@ -26,7 +26,7 @@ const ModelArchitecture = () => {
             <ArrowRight className="text-blue-400 flex-shrink-0" />
 
             {/* Feature Extraction */}
-            <div className="flex-shrink-0 w-64">
+            <div className="flex-shrink-0 w-60">
               <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg p-4 border border-green-500">
                 <h4 className="text-green-300 font-semibold mb-2">Feature Extraction</h4>
                 <div className="space-y-3">
@@ -47,12 +47,12 @@ const ModelArchitecture = () => {
             <ArrowRight className="text-green-400 flex-shrink-0" />
 
             {/* Flatten */}
-            <div className="flex-shrink-0 w-48">
+            <div className="flex-shrink-0 w-38">
               <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 rounded-lg p-4 border border-yellow-500">
                 <h4 className="text-yellow-300 font-semibold mb-2">Flatten</h4>
                 <div className="text-sm text-gray-300">
                   <p>7 x 7 x 64</p>
-                  <p>↓</p>
+                  <p className="text-center relative left-[-15px]">↓</p>
                   <p>3,136 features</p>
                 </div>
               </div>
@@ -61,7 +61,7 @@ const ModelArchitecture = () => {
             <ArrowRight className="text-yellow-400 flex-shrink-0" />
 
             {/* Classification */}
-            <div className="flex-shrink-0 w-48">
+            <div className="flex-shrink-0 w-40">
               <div className="bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-lg p-4 border border-purple-500">
                 <h4 className="text-purple-300 font-semibold mb-2">Classification</h4>
                 <div className="text-sm text-gray-300">
@@ -117,7 +117,7 @@ const ModelArchitecture = () => {
                 <h4 className="text-yellow-300 font-semibold mb-2">Flatten</h4>
                 <div className="text-sm text-gray-300">
                   <p>7 x 7 x 64</p>
-                  <p>↓</p>
+                  <p className="relative left-[25px]">↓</p>
                   <p>3,136 features</p>
                 </div>
               </div>
