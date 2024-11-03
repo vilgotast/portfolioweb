@@ -181,7 +181,7 @@ const projectDetails = {
     description: "Real-time drawing recognition using ONNX model in browser.",
     content: (
       <>
-        <p>This project demonstrates the capabilities of running machine learning models directly in the browser using ONNX Runtime. Draw anything in the canvas below, and the model will try to recognize what you've drawn in real-time!</p>
+        <p>This project demonstrates the capabilities of running machine learning models directly in the browser using ONNX Runtime. Draw anything in the canvas below, and the model will try to recognize what you've drawn in real-time! The classes are helicopter, spoon, bird. It REALLY likes to predict bird. Some good spoon drawings can be correctly guessed.</p>
         <h3 className="text-xl font-semibold mt-4 mb-2">Try it yourself:</h3>
         <DrawingCanvas />
         <h3 className="text-xl font-semibold mt-8 mb-2">How it works:</h3>
