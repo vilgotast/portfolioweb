@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import { Button } from "@/components/ui/button";
 import ProjectContent from '../components/ProjectContent';
 import DrawingCanvas from '../components/DrawingCanvas';
+import ModelArchitecture from '../components/ModelArchitecture';
 
 const ProjectTemplate = () => {
   const { projectId } = useParams();
@@ -17,7 +18,7 @@ const ProjectTemplate = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <Header isStartPage={false} />
-      <main className="container mx-auto px-4 py-32 max-w-5xl"> {/* Increased padding-top */}
+      <main className="container mx-auto px-4 py-32 max-w-5xl">
         <h1 className="text-4xl font-bold mb-6">{project.title}</h1>
         <p className="text-xl mb-8 text-gray-300">{project.description}</p>
         <ProjectContent content={project.content} />
@@ -191,6 +192,9 @@ const projectDetails = {
           <li>The drawing is preprocessed in real-time to match the model's input format</li>
           <li>Predictions are made locally without any server requests</li>
         </ul>
+        <div className="mt-8">
+          <ModelArchitecture />
+        </div>
       </>
     )
   }
