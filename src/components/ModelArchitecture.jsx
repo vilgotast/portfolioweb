@@ -9,7 +9,7 @@ const ModelArchitecture = () => {
       <div className="overflow-x-auto">
         <div className="flex flex-col space-y-6 min-w-[600px] p-4">
           {/* Layer Groups */}
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-5 gap-4 items-center">
             {/* Input Processing */}
             <div className="col-span-1">
               <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg p-4 border border-blue-500">
@@ -21,6 +21,9 @@ const ModelArchitecture = () => {
                 </div>
               </div>
             </div>
+
+            {/* Arrow between Input and Feature Extraction */}
+            <ArrowRight className="text-blue-400" />
 
             {/* Feature Extraction */}
             <div className="col-span-2">
@@ -41,6 +44,9 @@ const ModelArchitecture = () => {
               </div>
             </div>
 
+            {/* Arrow between Feature Extraction and Flatten */}
+            <ArrowRight className="text-green-400" />
+
             {/* Flatten */}
             <div className="col-span-1">
               <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 rounded-lg p-4 border border-yellow-500">
@@ -52,6 +58,9 @@ const ModelArchitecture = () => {
                 </div>
               </div>
             </div>
+
+            {/* Arrow between Flatten and Classification */}
+            <ArrowRight className="text-yellow-400" />
 
             {/* Classification */}
             <div className="col-span-1">
@@ -65,14 +74,6 @@ const ModelArchitecture = () => {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Data Flow Arrows */}
-          <div className="flex justify-center space-x-4">
-            <ArrowRight className="text-blue-400" />
-            <ArrowRight className="text-green-400" />
-            <ArrowRight className="text-yellow-400" />
-            <ArrowRight className="text-purple-400" />
           </div>
         </div>
       </div>
