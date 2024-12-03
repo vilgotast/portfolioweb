@@ -2,8 +2,60 @@ import React from 'react';
 import DrawingCanvas from '../components/DrawingCanvas';
 import ModelArchitecture from '../components/ModelArchitecture';
 import DatasetSection from '../components/DatasetSection';
+import { Button } from "@/components/ui/button";
+import { FileDown } from "lucide-react";
 
 export const projectDetails = {
+  safetysam: {
+    title: "SafetySam",
+    description: "A travel-advice chatbot using RAG (Retrieval-Augmented Generation)",
+    content: (
+      <>
+        <p className="mb-6">
+          SafetySam is an innovative chatbot designed to provide personalized travel safety advice using RAG technology. 
+          The system combines the power of large language models with a curated knowledge base of travel safety information 
+          to deliver accurate and contextual travel recommendations.
+        </p>
+        
+        <div className="flex flex-col md:flex-row gap-4 mb-8">
+          <Button 
+            onClick={() => window.open(`${import.meta.env.BASE_URL}docs/safetysam_report.pdf`, '_blank')}
+            className="flex items-center gap-2"
+          >
+            <FileDown className="h-4 w-4" />
+            Download Project Report
+          </Button>
+        </div>
+
+        <h3 className="text-xl font-semibold mt-8 mb-4">Project Demo</h3>
+        <div className="aspect-video w-full rounded-lg overflow-hidden mb-8">
+          <video 
+            controls 
+            className="w-full"
+            poster={`${import.meta.env.BASE_URL}images/safetysam/thumbnail.jpg`}
+          >
+            <source src={`${import.meta.env.BASE_URL}videos/safetysam_demo.mp4`} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <h3 className="text-xl font-semibold mb-4">Key Features:</h3>
+        <ul className="list-disc list-inside mb-6">
+          <li>Retrieval-Augmented Generation for accurate responses</li>
+          <li>Real-time travel safety information</li>
+          <li>Context-aware recommendations</li>
+          <li>Integration with travel safety databases</li>
+        </ul>
+
+        <h3 className="text-xl font-semibold mb-4">Technical Implementation</h3>
+        <p className="mb-4">
+          The system uses a RAG architecture to combine the power of large language models with a 
+          specialized knowledge base of travel safety information. This ensures that responses are 
+          both contextually relevant and factually accurate.
+        </p>
+      </>
+    )
+  },
   benbot: {
     title: "BenBot",
     description: "BenBot is proof-of-concept project with a live demo of server-side inference.",

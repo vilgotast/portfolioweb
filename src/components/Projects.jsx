@@ -8,6 +8,12 @@ import { Button } from "@/components/ui/button";
 
 const projectData = [
   {
+    title: "SafetySam",
+    description: "A travel-advice chatbot using RAG (Retrieval-Augmented Generation).",
+    tags: ["RAG", "Chatbot", "NLP"],
+    link: "/projects/safetysam"
+  },
+  {
     title: "BenBot",
     description: "A chatbot project with a live demo.",
     tags: ["Chatbot", "Huggingface", "Flask"],
