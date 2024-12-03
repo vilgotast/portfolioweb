@@ -19,11 +19,11 @@ export const projectDetails = {
         
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <Button 
-            onClick={() => window.open(`${import.meta.env.BASE_URL}docs/safetysam_report.pdf`, '_blank')}
+            onClick={() => window.open(`${import.meta.env.BASE_URL}docs/safetysam_report.pdf`, '_blank', 'noopener,noreferrer')}
             className="flex items-center gap-2"
           >
             <FileDown className="h-4 w-4" />
-            Download Project Report
+            View Project Report
           </Button>
         </div>
 
