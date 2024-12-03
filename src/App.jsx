@@ -9,8 +9,6 @@ import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
 import ScrollToTop from "./components/ScrollToTop";
 
-console.log("Starting App component initialization");
-
 const queryClient = new QueryClient();
 
 const App = () => {

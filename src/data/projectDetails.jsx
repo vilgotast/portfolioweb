@@ -4,6 +4,68 @@ import ModelArchitecture from '../components/ModelArchitecture';
 import DatasetSection from '../components/DatasetSection';
 
 export const projectDetails = {
+  safetysam: {
+    title: "SafetySam",
+    description: "A travel-advice chatbot using RAG for personalized safety recommendations",
+    content: (
+      <>
+        <p>SafetySam is an innovative chatbot that provides personalized travel safety advice using Retrieval-Augmented Generation (RAG). By combining real-time information retrieval with natural language processing, SafetySam offers contextual and accurate travel recommendations tailored to specific destinations and traveler needs.</p>
+        
+        <h3 className="text-xl font-semibold mt-4 mb-2">Key Features:</h3>
+        <ul className="list-disc list-inside mb-4">
+          <li>RAG-powered responses using up-to-date travel safety information</li>
+          <li>Personalized recommendations based on destination and user context</li>
+          <li>Integration with vector database for efficient information retrieval</li>
+        </ul>
+
+        <div className="mt-8">
+          <h3 className="text-2xl font-semibold mb-4">Project Documentation</h3>
+          <a 
+            href={`${import.meta.env.BASE_URL}docs/safetysam-report.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+              View Project Report (PDF)
+            </Button>
+          </a>
+        </div>
+
+        <div className="mt-8">
+          <h3 className="text-2xl font-semibold mb-4">Demo Video</h3>
+          <div className="aspect-w-16 aspect-h-9">
+            <video controls className="rounded-lg shadow-lg w-full">
+              <source src={`${import.meta.env.BASE_URL}videos/safetysam-demo.mp4`} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <h3 className="text-2xl font-semibold mb-4">System Architecture</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <img 
+                src={`${import.meta.env.BASE_URL}images/safetysam/architecture.png`} 
+                alt="SafetySam Architecture" 
+                className="w-full h-auto rounded-lg shadow-md mb-2"
+              />
+              <p className="text-sm text-gray-400">System architecture diagram showing the RAG pipeline.</p>
+            </div>
+            <div>
+              <img 
+                src={`${import.meta.env.BASE_URL}images/safetysam/vector-db.png`} 
+                alt="Vector Database Visualization" 
+                className="w-full h-auto rounded-lg shadow-md mb-2"
+              />
+              <p className="text-sm text-gray-400">Vector database visualization showing document embeddings.</p>
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  },
   benbot: {
     title: "BenBot",
     description: "BenBot is proof-of-concept project with a live demo of server-side inference.",
