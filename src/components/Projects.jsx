@@ -8,12 +8,6 @@ import { Button } from "@/components/ui/button";
 
 const projectData = [
   {
-    title: "SafetySam",
-    description: "A travel-advice chatbot using RAG for personalized safety recommendations.",
-    tags: ["RAG", "LangChain", "Vector DB"],
-    link: "/projects/safetysam"
-  },
-  {
     title: "BenBot",
     description: "A chatbot project with a live demo.",
     tags: ["Chatbot", "Huggingface", "Flask"],
@@ -43,12 +37,6 @@ const projectData = [
     tags: ["Audio Generation", "Deep Learning", "Diffusion"],
     link: "/projects/deepbirdsound"
   }
-];
-
-const ongoingProjects = [
-  "Text-to-SQL project: Natural language to SQL query",
-  "Volleyball metric improvement for players and coaches",
-  "Real-time drawing guesser using CNNs"
 ];
 
 const Projects = ({ showPreview = false }) => {
