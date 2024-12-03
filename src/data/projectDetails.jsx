@@ -12,9 +12,12 @@ export const projectDetails = {
     content: (
       <>
         <p className="mb-6">
-          SafetySam is an innovative chatbot designed to provide personalized travel safety advice using RAG technology. 
-          The system combines the power of large language models with a curated knowledge base of travel safety information 
-          to deliver accurate and contextual travel recommendations.
+          A common issue when using chatbots is that there is no way of knowing where the information came from. Did the bot just make it all up?
+          One way to solve this problem is by giving the relevant data to the LLM as context for answering the user prompt. The question then becomes how to know which 
+          data to give the model. Here, another model embeds the entire dataset into language embeddings, which then can be compared to an embedded version of the user prompt. 
+          If the embedded prompt is similar to embedded parts of the dataset, those are the parts that should be supplied to the chatbot as context. This is known as Retrieval-Augmented Generation (RAG).
+          SafetySam is a chatbot designed to provide personalized travel safety advice using RAG technology. It can answer questions about different destinations and provide the user with the sources it relied on.
+          For more details, see the full project report below.
         </p>
         
         <div className="flex flex-col md:flex-row gap-4 mb-8">
@@ -25,18 +28,6 @@ export const projectDetails = {
             <FileDown className="h-4 w-4" />
             View Project Report
           </Button>
-        </div>
-
-        <h3 className="text-xl font-semibold mt-8 mb-4">Project Demo</h3>
-        <div className="aspect-video w-full rounded-lg overflow-hidden mb-8">
-          <video 
-            controls 
-            className="w-full"
-            poster={`${import.meta.env.BASE_URL}images/safetysam/thumbnail.jpg`}
-          >
-            <source src={`${import.meta.env.BASE_URL}videos/safetysam_demo.mp4`} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
         </div>
 
         <h3 className="text-xl font-semibold mb-4">Key Features:</h3>
@@ -51,7 +42,8 @@ export const projectDetails = {
         <p className="mb-4">
           The system uses a RAG architecture to combine the power of large language models with a 
           specialized knowledge base of travel safety information. This ensures that responses are 
-          both contextually relevant and factually accurate.
+          both contextually relevant and factually accurate. It is deployed locally with a React frontend and a python flask backend, using ollama for the LLM integration.
+          The specific language model used for the chat is the 3B version of Llama3.2, and the dataset is embedded with the model all-minilm-l6-v2 which is integrated via Hugging Face. The full source code can be accessed in the report.
         </p>
       </>
     )

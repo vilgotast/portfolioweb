@@ -28,6 +28,12 @@ const projectData = [
     link: "/projects/stylealign",
   },
   {
+    title: "SafetySam",
+    description: "A travel-advice chatbot using RAG for personalized safety recommendations.",
+    tags: ["RAG", "LangChain", "Vector DB"],
+    link: "/projects/safetysam"
+  },
+  {
     title: "Gym Racecar",
     description: "A reinforcement learning project for racing car simulation.",
     tags: ["Reinforcement Learning", "Q-learning"],
@@ -48,10 +54,8 @@ const projectData = [
 ];
 
 const ongoingProjects = [
-  "SafetySam: A travel-advice chatbot using RAG",
   "Text-to-SQL project: Natural language to SQL query",
-  "Volleyball metric improvement for players and coaches",
-  "Real-time drawing guesser using CNNs"
+  "Volleyball metric improvement for players and coaches"
 ];
 
 const ProjectsPage = () => {
