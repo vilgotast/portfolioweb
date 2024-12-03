@@ -9,6 +9,8 @@ import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
 import ScrollToTop from "./components/ScrollToTop";
 
+console.log("App.jsx is loading");
+
 const queryClient = new QueryClient();
 
 const App = () => {
