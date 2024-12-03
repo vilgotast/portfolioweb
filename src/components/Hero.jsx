@@ -195,7 +195,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl mb-8 leading-relaxed text-gray-300">
-            Exploring the frontiers of AI through practical projects
+            Exploring new methods in AI through practical projects
           </p>
 
           <div className="flex gap-4 justify-center">

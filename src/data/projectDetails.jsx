@@ -14,7 +14,7 @@ export const projectDetails = {
         <p className="mb-6">
           A common issue when using chatbots is that there is no way of knowing where the information came from. Did the bot just make it all up?
           One way to solve this problem is by giving the relevant data to the LLM as context for answering the user prompt. The question then becomes how to know which 
-          data to give the model. Here, another model embeds the entire dataset into language embeddings, which then can be compared to an embedded version of the user prompt. 
+          data to give the model. Here, another model embeds the entire dataset into language embeddings, which can be compared to an embedded version of the user prompt. 
           If the embedded prompt is similar to embedded parts of the dataset, those are the parts that should be supplied to the chatbot as context. This is known as Retrieval-Augmented Generation (RAG).
           SafetySam is a chatbot designed to provide personalized travel safety advice using RAG technology. It can answer questions about different destinations and provide the user with the sources it relied on.
           For more details, see the full project report below.
@@ -54,7 +54,7 @@ export const projectDetails = {
     demoLink: "https://benchat-fbt5.onrender.com/",
     content: (
       <>
-        <p>I wanted to try using pre-trained LLMs without having to download large models or run through local hosting. BenBot runs on Llama 3 through the Huggingface API. I have implemented a live demo which can be tried using the button below (takes about 1 min to start if inactive). See if you can figure out the system prompt!</p>
+        <p>I wanted to try using pre-trained LLMs without having to download large models or run through local hosting. BenBot runs on Llama 3.1 through the Hugging Face API. I have implemented a live demo which can be tried using the button below (takes about 1 min to start if inactive). See if you can figure out the system prompt!</p>
         <h3 className="text-xl font-semibold mt-4 mb-2">Key Features:</h3>
         <ul className="list-disc list-inside mb-4">
           <li>LLM inference on server-side</li>
@@ -69,7 +69,7 @@ export const projectDetails = {
     description: "SumoTraffic is a multi-agent reinforcement learning solution to a traffic simulation.",
     content: (
       <>
-        <p>This project aims to understand how multiple agent can interact and learn together in a reinforcement learning environment. It was implemented in the 
+        <p>This project aims to understand how multiple agents can interact and learn together in a reinforcement learning environment. It was implemented in the 
           <a href="https://eclipse.dev/sumo/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline"> "Simulation of Urban MObility" (SUMO) environment</a>
           , which creates a dynamic and realistic simulation environment for urban traffic scenarios. On top of it, reinforcement learning is implemented via 
           <a href="https://zenodo.org/doi/10.5281/zenodo.10869789" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline"> SUMO-RL</a>
@@ -128,7 +128,7 @@ export const projectDetails = {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <img src={`${import.meta.env.BASE_URL}/images/stylealign/stylealign_ex1.png`} alt="StyleAlign Example 1" className="w-full h-auto rounded-lg shadow-md mb-2" />
-              <p className="text-sm text-gray-400">Reference image (left side) had the prompt: "A drawing of a sea", and the target image got the prompt "A boat". </p>
+              <p className="text-sm text-gray-400">Reference image (left side) had the prompt: "A drawing of a sea", and the target image had the prompt "A boat". </p>
             </div>
             <div>
               <img src={`${import.meta.env.BASE_URL}/images/stylealign/stylealign_ex2.png`} alt="StyleAlign Example 2" className="w-full h-auto rounded-lg shadow-md mb-2" />
@@ -166,32 +166,14 @@ export const projectDetails = {
       </>
     )
   },
-  deepbirdsound: {
-    title: "Deep Birdsound Generator",
-    description: "Deep Birdsound Generator is an experimental project.",
-    content: (
-      <>
-        <p>zzzzzzzzzzzzzzzzzzzzzzz</p>
-        <h3 className="text-xl font-semibold mt-4 mb-2">Project Goals:</h3>
-        <ul className="list-disc list-inside mb-4">
-          <li>Develop a deep learning model for audio synthesis</li>
-          <li>Create a diverse dataset of bird sounds</li>
-          <li>Implement spectral and temporal analysis of bird vocalizations</li>
-          <li>Explore applications in ecology and environmental monitoring</li>
-        </ul>
-        <div className="mt-6">
-          <h3 className="text-xl font-semibold mb-2">Project Status</h3>
-          <p>This project is currently in the research and development phase. Stay tuned for updates and preliminary results!</p>
-        </div>
-      </>
-    )
-  },
   drawingrecognition: {
     title: "Drawing Recognition",
     description: "Real-time drawing recognition using ONNX model in browser.",
     content: (
       <>
-        <p>This project demonstrates the capabilities of running machine learning models directly in the browser using ONNX Runtime. Draw anything in the canvas below, and the model will try to recognize what you've drawn in real-time! The classes are helicopter, spoon, bird. It REALLY likes to predict bird. Some good spoon drawings can be correctly guessed.</p>
+        <p>This project demonstrates the capabilities of running machine learning models directly in the browser using ONNX Runtime. Draw anything in the canvas below, and the model will try to recognize what you've drawn in real-time! The classes it knows are helicopter, spoon, and bird. 
+          You will see the guess in the top left corner of the canvas. Example pictures of what it was trained on and the model architecture can be seen below.
+        </p>
         <h3 className="text-xl font-semibold mt-4 mb-2">Try it yourself:</h3>
         <DrawingCanvas />
         <DatasetSection />

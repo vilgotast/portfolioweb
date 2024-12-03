@@ -16,7 +16,7 @@ const projectData = [
   {
     title: "BenBot",
     description: "A chatbot project with a live demo.",
-    tags: ["Chatbot", "Huggingface", "Flask"],
+    tags: ["Chatbot", "Hugging Face", "Flask"],
     link: "/projects/benbot",
   },
   {
@@ -36,12 +36,6 @@ const projectData = [
     description: "A reinforcement learning project for racing car environment",
     tags: ["Reinforcement Learning", "Q-learning", "OpenAI Gym"],
     link: "/projects/gymracecar"
-  },
-  {
-    title: "Deep Birdsound Generator",
-    description: "An experimental project for generating bird sounds (currently in development).",
-    tags: ["Audio Generation", "Deep Learning", "Diffusion"],
-    link: "/projects/deepbirdsound"
   }
 ];
 

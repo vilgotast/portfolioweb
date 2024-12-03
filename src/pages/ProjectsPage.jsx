@@ -10,12 +10,6 @@ import Footer from '../components/Footer';
 
 const projectData = [
   {
-    title: "BenBot",
-    description: "A proof-of-concept chatbot using server-side inference.",
-    tags: ["Chatbot", "Huggingface"],
-    link: "/projects/benbot",
-  },
-  {
     title: "SumoTraffic",
     description: "Traffic manegement through multi-agent reinforcement learning.",
     tags: ["Simulation", "Reinforement Learning", "DQN", "Multi-agent"],
@@ -46,16 +40,18 @@ const projectData = [
     link: "/projects/drawingrecognition",
   },
   {
-    title: "Deep Birdsound Generator",
-    description: "An experimental project for generating bird sounds (currently in development).",
-    tags: ["Audio Generation", "Deep Learning"],
-    link: "/projects/deepbirdsound",
+    title: "BenBot",
+    description: "A proof-of-concept chatbot using server-side inference.",
+    tags: ["Chatbot", "Hugging Face"],
+    link: "/projects/benbot",
   },
 ];
 
 const ongoingProjects = [
   "Text-to-SQL project: Natural language to SQL query",
-  "Volleyball metric improvement for players and coaches"
+  "Volleyball metric improvement for players and coaches",
+  "Deep Birdsound Generator using diffusion in an audio context",
+  "Optimizing and Evaluating Large Language Models for Swedish Government Document Classification"
 ];
 
 const ProjectsPage = () => {
