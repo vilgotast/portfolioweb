@@ -2,7 +2,15 @@ import { fileURLToPath, URL } from "url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
-import { componentTagger } from "lovable-tagger";
+
+// Conditionally import lovable-tagger only if it exists
+let componentTagger;
+try {
+  const lovableTagger = await import('lovable-tagger');
+  componentTagger = lovableTagger.componentTagger;
+} catch (e) {
+  componentTagger = null;
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -12,7 +20,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' && componentTagger(),
+    mode === 'development' && componentTagger && componentTagger(),
   ].filter(Boolean),
   base: '/portfolioweb/',
   resolve: {
