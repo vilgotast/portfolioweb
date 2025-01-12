@@ -37,7 +37,7 @@ const ProjectsPage = () => {
               className="mb-4"
             >
               <Card 
-                className="bg-gray-800 border-gray-700 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105"
+                className="bg-gray-800 border-gray-700 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105 overflow-hidden rounded-2xl"
                 onClick={() => navigate(project.link)}
               >
                 <div className="w-full h-48 overflow-hidden">
@@ -83,7 +83,7 @@ const ProjectsPage = () => {
         
         <section className="mt-16">
           <h2 className="text-3xl font-bold mb-6 text-blue-200">Currently Working On</h2>
-          <Card className="bg-gray-800 border-gray-700">
+          <Card className="bg-gray-800 border-gray-700 rounded-2xl">
             <CardContent className="pt-6">
               <ul className="list-disc list-inside space-y-2 text-gray-300">
                 {[
