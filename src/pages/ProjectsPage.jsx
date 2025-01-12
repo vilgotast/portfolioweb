@@ -7,52 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRightIcon } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-
-const projectData = [
-  {
-    title: "SumoTraffic",
-    description: "Traffic manegement through multi-agent reinforcement learning.",
-    tags: ["Simulation", "Reinforement Learning", "DQN", "Multi-agent"],
-    link: "/projects/sumotraffic",
-  },
-  {
-    title: "StyleAlign",
-    description: "Style transfer project using pretrained diffusion model.",
-    tags: ["Diffusion", "Style Transfer"],
-    link: "/projects/stylealign",
-  },
-  {
-    title: "SafetySam",
-    description: "A travel-advice chatbot using RAG for personalized safety recommendations.",
-    tags: ["RAG", "LangChain", "Vector DB"],
-    link: "/projects/safetysam"
-  },
-  {
-    title: "Gym Racecar",
-    description: "A reinforcement learning project for racing car simulation.",
-    tags: ["Reinforcement Learning", "Q-learning"],
-    link: "/projects/gymracecar",
-  },
-  {
-    title: "Drawing Recognition",
-    description: "Real-time drawing recognition using ONNX model in browser.",
-    tags: ["ONNX", "Computer Vision", "Interactive"],
-    link: "/projects/drawingrecognition",
-  },
-  {
-    title: "BenBot",
-    description: "A proof-of-concept chatbot using server-side inference.",
-    tags: ["Chatbot", "Hugging Face"],
-    link: "/projects/benbot",
-  },
-];
-
-const ongoingProjects = [
-  "Text-to-SQL project: Natural language to SQL query",
-  "Volleyball metric improvement for players and coaches",
-  "Deep Birdsound Generator using diffusion in an audio context",
-  "Optimizing and Evaluating Large Language Models for Swedish Government Document Classification"
-];
+import { projectData } from '../data/projectsData';
 
 const ProjectsPage = () => {
   const navigate = useNavigate();
@@ -85,6 +40,25 @@ const ProjectsPage = () => {
                 className="bg-gray-800 border-gray-700 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105"
                 onClick={() => navigate(project.link)}
               >
+                <div className="w-full h-48 overflow-hidden">
+                  {project.image.endsWith('.mp4') ? (
+                    <video 
+                      className="w-full h-full object-cover"
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline
+                    >
+                      <source src={project.image} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                </div>
                 <CardHeader>
                   <CardTitle className="text-2xl text-blue-300">{project.title}</CardTitle>
                 </CardHeader>
@@ -112,7 +86,12 @@ const ProjectsPage = () => {
           <Card className="bg-gray-800 border-gray-700">
             <CardContent className="pt-6">
               <ul className="list-disc list-inside space-y-2 text-gray-300">
-                {ongoingProjects.map((project, index) => (
+                {[
+                  "Text-to-SQL project: Natural language to SQL query",
+                  "Volleyball metric improvement for players and coaches",
+                  "Deep Birdsound Generator using diffusion in an audio context",
+                  "Optimizing and Evaluating Large Language Models for Swedish Government Document Classification"
+                ].map((project, index) => (
                   <li key={index}>{project}</li>
                 ))}
               </ul>
