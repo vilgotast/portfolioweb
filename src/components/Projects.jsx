@@ -11,31 +11,36 @@ const projectData = [
     title: "SafetySam",
     description: "A travel-advice chatbot using RAG (Retrieval-Augmented Generation).",
     tags: ["RAG", "Chatbot", "NLP"],
-    link: "/projects/safetysam"
+    link: "/projects/safetysam",
+    image: `${import.meta.env.BASE_URL}images/sumotraffic/random.gif`
   },
   {
     title: "BenBot",
     description: "A chatbot project with a live demo.",
     tags: ["Chatbot", "Hugging Face", "Flask"],
     link: "/projects/benbot",
+    image: `${import.meta.env.BASE_URL}images/drawing_recognition/bird.png`
   },
   {
     title: "SumoTraffic",
     description: "mMlti-agent reinforcement learning solution to a traffic simulation.",
     tags: ["Multi Agent", "DQN"],
-    link: "/projects/sumotraffic"
+    link: "/projects/sumotraffic",
+    image: `${import.meta.env.BASE_URL}images/sumotraffic/dqn.gif`
   },
   {
     title: "StyleAlign",
     description: "Style transfer using shared attention.",
     tags: ["Style transfer", "Image generation", "Attention processing"],
-    link: "/projects/stylealign"
+    link: "/projects/stylealign",
+    image: `${import.meta.env.BASE_URL}images/stylealign/stylealign_ex1.png`
   },
   {
     title: "Gym Racecar",
     description: "A reinforcement learning project for racing car environment",
     tags: ["Reinforcement Learning", "Q-learning", "OpenAI Gym"],
-    link: "/projects/gymracecar"
+    link: "/projects/gymracecar",
+    image: `${import.meta.env.BASE_URL}videos/car.mp4`
   }
 ];
 
@@ -67,6 +72,25 @@ const Projects = ({ showPreview = false }) => {
                 className="cursor-pointer"
               >
                 <Card className="overflow-hidden transition-all duration-300 bg-gray-800 border-gray-700 h-full">
+                  <div className="w-full h-48 overflow-hidden">
+                    {project.image.endsWith('.mp4') ? (
+                      <video 
+                        className="w-full h-full object-cover"
+                        autoPlay 
+                        loop 
+                        muted 
+                        playsInline
+                      >
+                        <source src={project.image} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                  </div>
                   <CardHeader className="bg-gradient-to-r from-gray-800 to-gray-700 text-white">
                     <CardTitle className="text-2xl">{project.title}</CardTitle>
                   </CardHeader>
