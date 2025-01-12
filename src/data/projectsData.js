@@ -4,14 +4,14 @@ export const projectData = [
     description: "A travel-advice chatbot using RAG (Retrieval-Augmented Generation).",
     tags: ["RAG", "Chatbot", "NLP"],
     link: "/projects/safetysam",
-    image: `${import.meta.env.BASE_URL}images/sumotraffic/random.gif`
+    image: `${import.meta.env.BASE_URL}images/safetysam/example.png`
   },
   {
     title: "BenBot",
     description: "A chatbot project with a live demo.",
     tags: ["Chatbot", "Hugging Face", "Flask"],
     link: "/projects/benbot",
-    image: `${import.meta.env.BASE_URL}images/drawing_recognition/bird.png`
+    image: `${import.meta.env.BASE_URL}images/benbot/tired.png`
   },
   {
     title: "SumoTraffic",
@@ -33,5 +33,12 @@ export const projectData = [
     tags: ["Reinforcement Learning", "Q-learning", "OpenAI Gym"],
     link: "/projects/gymracecar",
     image: `${import.meta.env.BASE_URL}videos/car.mp4`
+  },
+  {
+    title: "Neural drawing guesser",
+    description: "A small neural network predicts drawings in real time",
+    tags: ["Neural Networks", "ONNX", "Interactive"],
+    link: "/projects/drawingrecognition",
+    image: `${import.meta.env.BASE_URL}images/drawing_recognition/bird.png`
   }
 ];
