@@ -15,7 +15,7 @@ export const projectData = [
   },
   {
     title: "SumoTraffic",
-    description: "mMlti-agent reinforcement learning solution to a traffic simulation.",
+    description: "Multi-agent reinforcement learning solution to a traffic simulation.",
     tags: ["Multi Agent", "DQN"],
     link: "/projects/sumotraffic",
     image: `${import.meta.env.BASE_URL}images/sumotraffic/dqn.gif`

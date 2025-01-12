@@ -36,37 +36,48 @@ const ProjectsPage = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="mb-4"
             >
-              <Card 
+              <Card
                 className="bg-gray-800 border-gray-700 cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105 overflow-hidden rounded-2xl"
                 onClick={() => navigate(project.link)}
               >
-                <div className="w-full h-48 overflow-hidden">
+                {/* Dynamic container for images/videos */}
+                <div className="w-full overflow-hidden">
                   {project.image.endsWith('.mp4') ? (
-                    <video 
-                      className="w-full h-full object-cover"
-                      autoPlay 
-                      loop 
-                      muted 
+                    <video
+                      className="w-full h-auto object-cover"
+                      autoPlay
+                      loop
+                      muted
                       playsInline
                     >
                       <source src={project.image} type="video/mp4" />
                     </video>
                   ) : (
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover"
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-auto object-cover"
                     />
                   )}
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-blue-300">{project.title}</CardTitle>
+                  <CardTitle className="text-2xl text-blue-300">
+                    {project.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-300 mb-4">{project.description}</CardDescription>
+                  <CardDescription className="text-gray-300 mb-4">
+                    {project.description}
+                  </CardDescription>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="secondary" className="bg-gray-700 text-blue-200">{tag}</Badge>
+                      <Badge
+                        key={tagIndex}
+                        variant="secondary"
+                        className="bg-gray-700 text-blue-200"
+                      >
+                        {tag}
+                      </Badge>
                     ))}
                   </div>
                   <motion.div
@@ -80,7 +91,7 @@ const ProjectsPage = () => {
             </motion.div>
           ))}
         </Masonry>
-        
+
         <section className="mt-16">
           <h2 className="text-3xl font-bold mb-6 text-blue-200">Currently Working On</h2>
           <Card className="bg-gray-800 border-gray-700 rounded-2xl">

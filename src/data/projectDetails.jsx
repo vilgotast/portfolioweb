@@ -11,6 +11,14 @@ export const projectDetails = {
     description: "A travel-advice chatbot using RAG (Retrieval-Augmented Generation)",
     content: (
       <>
+        <div>
+          <img
+          src={`${import.meta.env.BASE_URL}images/safetysam/example.png`}
+          alt='Example of SafetySam'
+          className="w-full max-w-2xl h-auto mx-auto rounded-lg shadow-md mb-2"
+
+          />
+        </div>
         <p className="mb-6">
           A common issue when using chatbots is that there is no way of knowing where the information came from. Did the bot just make it all up?
           One way to solve this problem is by giving the relevant data to the LLM as context for answering the user prompt. The question then becomes how to know which 
@@ -55,12 +63,29 @@ export const projectDetails = {
     content: (
       <>
         <p>I wanted to try using pre-trained LLMs without having to download large models or run through local hosting. BenBot runs on Llama 3.1 through the Hugging Face API. I have implemented a live demo which can be tried using the button below (takes about 1 min to start if inactive). See if you can figure out the system prompt!</p>
+        
+        
         <h3 className="text-xl font-semibold mt-4 mb-2">Key Features:</h3>
         <ul className="list-disc list-inside mb-4">
           <li>LLM inference on server-side</li>
           <li>Context-aware responses</li>
           <li>Live Demo</li>
         </ul>
+
+        <div className='mt-6'>
+        <h3 className="text-2xl font-semibold mb-4">Some examples:</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <img src={`${import.meta.env.BASE_URL}images/benbot/tired.png`} alt="Random agents" className="w-full h-auto rounded-lg shadow-md mb-2" />
+              </div>
+              <div>
+                <img src={`${import.meta.env.BASE_URL}/images/benbot/ex2.png`} alt="DQN agents" className="w-full h-auto rounded-lg shadow-md mb-2" />
+              </div>
+              <div>
+                <img src={`${import.meta.env.BASE_URL}/images/benbot/ex3.png`} alt="Observing agents" className="w-full h-auto rounded-lg shadow-md mb-2" />
+              </div>
+            </div>
+        </div>
       </>
     )
   },
