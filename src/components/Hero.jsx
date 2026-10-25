@@ -173,17 +173,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="flex justify-center gap-4 mb-6">
-            <div>
-              <Rocket className="w-8 h-8 text-blue-400" />
-            </div>
-            <div>
-              <Star className="w-8 h-8 text-yellow-400" />
-            </div>
-            <div>
-              <Zap className="w-8 h-8 text-purple-400" />
-            </div>
-          </div>
+
 
           <h1 className="text-5xl font-extrabold mb-6 leading-tight">
             Hi, I'm
