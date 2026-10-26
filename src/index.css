@@ -1,46 +1,201 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
-    --background: 220 17% 17%;
-    --foreground: 210 40% 98%;
+    --sheet: #f4e9cd;
+    --sheet-2: #eadcb7;
+    --ink: #2b2118;
+    --ink-2: #6a583f;
+    --pencil: #b9a67e;
+    --accent: #b8322b;
+    --accent-fill: #c0362d;
 
-    --card: 220 17% 20%;
-    --card-foreground: 210 40% 98%;
- 
-    --popover: 220 17% 17%;
-    --popover-foreground: 210 40% 98%;
- 
-    --primary: 199 89% 48%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 220 17% 25%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 220 17% 30%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 199 89% 48%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --background: 43 63% 88%;
+    --foreground: 28 28% 13%;
 
-    --border: 220 17% 30%;
-    --input: 220 17% 30%;
-    --ring: 199 89% 48%;
+    --card: 43 52% 82%;
+    --card-foreground: 28 28% 13%;
  
-    --radius: 0.5rem;
+    --popover: 43 63% 88%;
+    --popover-foreground: 28 28% 13%;
+ 
+    --primary: 28 28% 13%;
+    --primary-foreground: 43 63% 88%;
+ 
+    --secondary: 43 52% 82%;
+    --secondary-foreground: 28 28% 13%;
+ 
+    --muted: 43 45% 80%;
+    --muted-foreground: 35 25% 33%;
+ 
+    --accent-hsl: 3 62% 45%;
+    --accent-foreground: 43 63% 88%;
+ 
+    --destructive: 3 62% 45%;
+    --destructive-foreground: 43 63% 88%;
+
+    --border: 40 30% 61%;
+    --input: 40 30% 61%;
+    --ring: 28 28% 13%;
+ 
+    --radius: 0rem;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--sheet);
+    color: var(--ink);
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', 'Newsreader', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    -webkit-text-size-adjust: 100%;
+    @apply antialiased selection:bg-[#f2c14e] selection:text-[#2b2118];
   }
+}
+
+@layer components {
+  .ff-mark {
+    font-family: 'VT323', ui-monospace, monospace;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-shadow: 2px 2px 0 rgba(192, 54, 45, 0.82);
+  }
+
+  .ff-title {
+    font-family: 'VT323', ui-monospace, monospace;
+    line-height: 0.98;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-shadow: 2px 2px 0 rgba(192, 54, 45, 0.82);
+    font-variant-ligatures: none;
+  }
+
+  .ff-eyebrow {
+    font-family: 'VT323', ui-monospace, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 1.05rem;
+    color: var(--accent);
+    font-variant-ligatures: none;
+  }
+
+  .ff-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'VT323', ui-monospace, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 1.45rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--accent);
+    font-variant-ligatures: none;
+  }
+
+  .ff-section-heading::after {
+    content: '';
+    flex: 1;
+    border-top: 1px dashed var(--pencil);
+  }
+
+  .ff-box {
+    background: var(--sheet-2);
+    box-shadow: 0 0 0 1px var(--ink);
+  }
+
+  .ff-prompt {
+    padding: 11px 0 13px;
+    border-top: 1px solid var(--ink);
+    border-bottom: 3px double var(--ink);
+  }
+
+  .ff-go {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    margin: 3px;
+    padding: 4px 18px 2px;
+    font-family: 'VT323', ui-monospace, monospace;
+    font-size: 1.2rem;
+    line-height: 1.15;
+    font-variant-ligatures: none;
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--sheet);
+    background: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 0 0 0 2px var(--sheet), 0 0 0 3px var(--ink);
+    cursor: pointer;
+    transition: transform 0.08s ease;
+  }
+
+  .ff-go:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  .ff-go:active {
+    transform: translateY(2px);
+    background: var(--accent-fill);
+    border-color: var(--accent-fill);
+  }
+
+  .ff-go-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    margin: 3px;
+    padding: 4px 18px 2px;
+    font-family: 'VT323', ui-monospace, monospace;
+    font-size: 1.2rem;
+    line-height: 1.15;
+    font-variant-ligatures: none;
+    letter-spacing: 0.12em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--sheet-2);
+    border: 1px solid var(--ink);
+    box-shadow: 0 0 0 2px var(--sheet), 0 0 0 3px var(--pencil);
+    cursor: pointer;
+  }
+
+  .ff-go-secondary:hover {
+    color: var(--accent);
+    box-shadow: 0 0 0 2px var(--sheet), 0 0 0 3px var(--ink);
+  }
+
+  .ff-stamp {
+    display: inline-block;
+    padding: 2px 5px 0;
+    font-family: 'VT323', ui-monospace, monospace;
+    font-size: 0.95rem;
+    line-height: 1;
+    font-variant-ligatures: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--tc, var(--ink));
+    border: 3px double var(--tc, var(--ink));
+    transform: rotate(-2deg);
+  }
+
+  .ff-stamp-common { --tc: #6b5d4a; background: rgba(244, 233, 205, 0.7); }
+  .ff-stamp-uncommon { --tc: #20684b; background: rgba(215, 238, 226, 0.65); }
+  .ff-stamp-rare { --tc: #b62f28; background: rgba(249, 220, 216, 0.65); }
+  .ff-stamp-elusive { --tc: #5d43b5; background: rgba(232, 224, 248, 0.65); }
+  .ff-stamp-farflung { --tc: #2b2118; background: #f2c14e; }
 }

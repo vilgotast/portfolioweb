@@ -17,6 +17,12 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['"Iowan Old Style"', '"Palatino Linotype"', 'Palatino', '"Book Antiqua"', '"Newsreader"', 'Georgia', 'serif'],
+        serif: ['"Iowan Old Style"', '"Palatino Linotype"', 'Palatino', '"Book Antiqua"', '"Newsreader"', 'Georgia', 'serif'],
+        pixel: ['"VT323"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        mono: ['"VT323"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

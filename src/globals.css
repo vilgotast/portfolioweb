@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pastelBlue: #5b8dd9;
+  --pastelBlueBg: #ddeafc;
+  --pastelTeal: #2aa89a;
+  --pastelTealBg: #c8f0ec;
+  --pastelGreen: #4da86a;
+  --pastelGreenBg: #d0f0da;
+  --pastelYellow: #b89020;
+  --pastelYellowBg: #fdf0c0;
+  --pastelOrange: #d4703a;
+  --pastelOrangeBg: #fde0c8;
+  --pastelRed: #d04060;
+  --pastelRedBg: #fcd0da;
+  --pastelPink: #cc5fa0;
+  --pastelPinkBg: #f8d0ea;
+  --pastelPurple: #8a5cc8;
+  --pastelPurpleBg: #e4d0f8;
+  --pastelBeige: #9e7c50;
+  --pastelBeigeBg: #f5e8d5;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');

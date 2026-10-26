@@ -1,6 +1,7 @@
 export const projectData = [
   {
     title: "SafetySam",
+    date: "Sep 2024",
     description: "A travel-advice chatbot using RAG (Retrieval-Augmented Generation).",
     tags: ["RAG", "Chatbot", "NLP"],
     link: "/projects/safetysam",
@@ -8,6 +9,7 @@ export const projectData = [
   },
   {
     title: "BenBot",
+    date: "May 2024",
     description: "A chatbot project with a live demo.",
     tags: ["Chatbot", "Hugging Face", "Flask"],
     link: "/projects/benbot",
@@ -15,6 +17,7 @@ export const projectData = [
   },
   {
     title: "SumoTraffic",
+    date: "Dec 2023",
     description: "Multi-agent reinforcement learning solution to a traffic simulation.",
     tags: ["Multi Agent", "DQN"],
     link: "/projects/sumotraffic",
@@ -22,6 +25,7 @@ export const projectData = [
   },
   {
     title: "StyleAlign",
+    date: "Jan 2024",
     description: "Style transfer using shared attention.",
     tags: ["Style transfer", "Image generation", "Attention processing"],
     link: "/projects/stylealign",
@@ -29,6 +33,7 @@ export const projectData = [
   },
   {
     title: "Gym Racecar",
+    date: "Oct 2023",
     description: "A reinforcement learning project for racing car environment",
     tags: ["Reinforcement Learning", "Q-learning", "OpenAI Gym"],
     link: "/projects/gymracecar",
@@ -36,6 +41,7 @@ export const projectData = [
   },
   {
     title: "Neural drawing guesser",
+    date: "Nov 2024",
     description: "A small neural network predicts drawings in real time",
     tags: ["Neural Networks", "ONNX", "Interactive"],
     link: "/projects/drawingrecognition",

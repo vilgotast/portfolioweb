@@ -1,85 +1,87 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRightIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const ProjectCard = ({ project, index, showPreview }) => {
+const stampStyles = [
+  "ff-stamp-farflung",
+  "ff-stamp-rare",
+  "ff-stamp-uncommon",
+  "ff-stamp-elusive",
+  "ff-stamp-common",
+  "ff-stamp-rare",
+];
+
+const ProjectCard = ({ project, index }) => {
   const navigate = useNavigate();
+  const stampCls = stampStyles[index % stampStyles.length];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
+    <motion.article
+      initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.2 }}
-      className={`relative ${showPreview ? 'group' : ''}`}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      onClick={() => navigate(project.link)}
+      className="group cursor-pointer ff-box p-4 flex flex-col justify-between transition-transform duration-150 hover:-translate-y-0.5"
     >
-      <motion.div
-        whileHover={{ 
-          scale: 1.05, 
-          y: -10,
-          boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)"
-        }}
-        transition={{ duration: 0.3 }}
-        onClick={() => navigate(project.link)}
-        className="cursor-pointer"
-      >
-        <Card className="overflow-hidden transition-all duration-300 bg-gray-800 border-gray-700 h-full">
-          <div className="w-full h-48 overflow-hidden">
-            {project.image.endsWith('.mp4') ? (
-              <video 
-                className="w-full h-full object-cover"
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-              >
-                <source src={project.image} type="video/mp4" />
-              </video>
-            ) : (
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-full object-cover"
-              />
-            )}
-          </div>
-          <CardHeader className="bg-gradient-to-r from-gray-800 to-gray-700 text-white">
-            <CardTitle className="text-2xl">{project.title}</CardTitle>
-          </CardHeader>
-          <CardContent className="p-6 flex flex-col justify-between h-full">
-            <div>
-              <CardDescription className="text-gray-300 mb-4">{project.description}</CardDescription>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag, tagIndex) => (
-                  <Badge key={tagIndex} variant="secondary" className="bg-gray-700 text-blue-200">{tag}</Badge>
-                ))}
-              </div>
-            </div>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileHover={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="inline-flex items-center text-blue-300 hover:text-blue-100 transition-colors duration-300">
-                Learn More <ArrowRightIcon className="ml-2 h-4 w-4" />
-              </div>
-            </motion.div>
-          </CardContent>
-        </Card>
-      </motion.div>
-      {showPreview && (
+      <div>
+        {/* Media Window */}
         <div
-          className={`absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none 
-            transition-opacity duration-300
-            ${index >= 2 ? 'opacity-100 md:opacity-100' : 'opacity-0'}
-            ${index >= 1 ? 'opacity-0 md:opacity-100' : ''} 
-            group-hover:opacity-0
-          `}
-        ></div>
-      )}
-    </motion.div>
+          className="w-full h-48 overflow-hidden bg-[#f4e9cd] mb-3.5"
+          style={{ boxShadow: '0 0 0 1px #2b2118' }}
+        >
+          {project.image.endsWith('.mp4') ? (
+            <video
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src={project.image} type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+          )}
+        </div>
+
+        {/* Title & Description */}
+        <div className="flex items-baseline justify-between gap-2 mb-2">
+          <h3 className="text-[23px] font-semibold leading-snug text-[#2b2118] group-hover:text-[#b8322b] underline decoration-[#b8322b]/50 group-hover:decoration-[#b8322b] decoration-1 underline-offset-4">
+            {project.title}
+          </h3>
+          {project.date && (
+            <time className="font-pixel uppercase tracking-[0.12em] text-[15px] text-[#6a583f] shrink-0">
+              {project.date}
+            </time>
+          )}
+        </div>
+        <p className="text-[17px] leading-[1.5] text-[#2b2118] mb-4">
+          {project.description}
+        </p>
+      </div>
+
+      {/* Tags & Read Link */}
+      <div className="pt-3 border-t border-dashed border-[#b9a67e] flex flex-wrap items-center justify-between gap-2">
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag, tagIndex) => (
+            <span
+              key={tagIndex}
+              className={tagIndex === 0 ? `ff-stamp ${stampCls}` : "px-2 py-0.5 bg-[#f4e9cd] font-pixel uppercase tracking-[0.1em] text-[14px] text-[#6a583f]"}
+              style={tagIndex === 0 ? undefined : { boxShadow: 'inset 0 0 0 1px #b9a67e' }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <span className="font-pixel uppercase tracking-[0.14em] text-[16px] text-[#b8322b] group-hover:underline">
+          Learn More ›
+        </span>
+      </div>
+    </motion.article>
   );
 };
 

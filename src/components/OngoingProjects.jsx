@@ -11,10 +11,10 @@ const ongoingProjects = [
 const OngoingProjects = () => {
   return (
     <section className="mt-16">
-      <h2 className="text-3xl font-bold mb-6 text-blue-200">Currently Working On</h2>
-      <Card className="bg-gray-800 border-gray-700">
+      <h2 className="text-3xl font-bold mb-6 text-[#5b8dd9]">Currently Working On</h2>
+      <Card className="bg-[#f6f4fb] border-[#e2d4f7] shadow-sm">
         <CardContent className="pt-6">
-          <ul className="list-disc list-inside space-y-2 text-gray-300">
+          <ul className="list-disc list-inside space-y-2 text-slate-700">
             {ongoingProjects.map((project, index) => (
               <li key={index}>{project}</li>
             ))}

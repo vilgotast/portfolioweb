@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from "@/components/ui/button";
 import ProjectCard from './ProjectCard';
 import { projectData } from '../data/projectsData';
 
@@ -9,27 +8,35 @@ const Projects = ({ showPreview = false }) => {
   const displayedProjects = showPreview ? projectData.slice(0, 4) : projectData;
 
   return (
-    <section className="py-20 bg-gray-900 relative">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16 text-blue-200">AI Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative">
+    <section className="py-12">
+      <div className="container mx-auto px-5 max-w-5xl">
+        <h2 className="ff-section-heading mb-6">AI Projects</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
           {displayedProjects.map((project, index) => (
-            <ProjectCard 
-              key={index} 
-              project={project} 
-              index={index} 
+            <ProjectCard
+              key={index}
+              project={project}
+              index={index}
               showPreview={showPreview}
             />
           ))}
         </div>
+
         {showPreview && (
-          <div className="mt-12 text-center relative z-10">
-            <Button 
+          <div className="flex flex-wrap items-center gap-6 mt-10 pt-7 border-t-[3px] border-double border-[#2b2118]">
+            <button
               onClick={() => navigate('/projects')}
-              className="bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300"
+              className="ff-go"
             >
-              Show All Projects
-            </Button>
+              Show All Projects ({projectData.length})
+            </button>
+            <button
+              onClick={() => navigate('/contact')}
+              className="font-pixel uppercase tracking-[0.14em] text-[18px] text-[#6a583f] hover:text-[#2b2118] underline underline-offset-4"
+            >
+              Or get in touch ›
+            </button>
           </div>
         )}
       </div>

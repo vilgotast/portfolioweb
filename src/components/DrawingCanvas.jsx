@@ -175,14 +175,15 @@ const DrawingCanvas = () => {
   };
 
   return (
-    <Card className="p-4 bg-gray-800 border-gray-700">
+    <div className="ff-box p-4 inline-block">
       <div className="space-y-4">
         <div className="relative">
           <canvas
             ref={canvasRef}
             width={canvasSize.width}
             height={canvasSize.height}
-            className="border border-gray-600 rounded-lg bg-gray-900 cursor-crosshair touch-none"
+            className="bg-[#2b2118] cursor-crosshair touch-none"
+            style={{ boxShadow: '0 0 0 1px #2b2118' }}
             onMouseDown={startDrawing}
             onMouseMove={draw}
             onMouseUp={stopDrawing}
@@ -193,25 +194,29 @@ const DrawingCanvas = () => {
             onTouchCancel={stopDrawing}
           />
           {prediction && (
-            <div className="absolute top-4 left-4 bg-gray-800/90 px-3 py-1 rounded-full">
-              <p className="text-sm text-blue-300">{prediction}</p>
+            <div className="absolute top-3 left-3">
+              <span className="ff-stamp ff-stamp-farflung text-[16px]">
+                {prediction}
+              </span>
             </div>
           )}
         </div>
-        <div className="flex justify-between">
-          <Button variant="outline" onClick={clearCanvas}>
+        <div className="flex justify-between gap-3">
+          <button onClick={clearCanvas} className="ff-go-secondary">
             <Eraser className="mr-2 h-4 w-4" />
             Clear
-          </Button>
-          <Button variant="outline" onClick={downloadDrawing}>
+          </button>
+          <button onClick={downloadDrawing} className="ff-go">
             <Download className="mr-2 h-4 w-4" />
             Save
-          </Button>
+          </button>
         </div>
         {logits && (
-          <div className="mt-4 p-2 bg-gray-800/90 rounded-md">
-            <h3 className="text-sm text-blue-300">Logits:</h3>
-            <ul className="text-sm text-white">
+          <div className="mt-4 p-3 bg-[#f4e9cd]" style={{ boxShadow: '0 0 0 1px #2b2118' }}>
+            <h3 className="font-pixel uppercase tracking-[0.14em] text-[16px] text-[#b8322b] mb-1">
+              Logits:
+            </h3>
+            <ul className="font-pixel text-[18px] text-[#2b2118] space-y-0.5">
               {Array.from(logits).map((logit, index) => (
                 <li key={index}>
                   Class {index}: {logit.toFixed(4)}
@@ -221,7 +226,7 @@ const DrawingCanvas = () => {
           </div>
         )}
       </div>
-    </Card>
+    </div>
   );
 };
 

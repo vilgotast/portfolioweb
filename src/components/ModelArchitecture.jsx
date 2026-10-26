@@ -1,156 +1,97 @@
 import React from 'react';
-import { Card } from "@/components/ui/card";
 import { ArrowRight, ArrowDown } from 'lucide-react';
 
 const ModelArchitecture = () => {
   return (
-    <Card className="p-6 bg-gray-800 border-gray-700">
-      <h3 className="text-xl font-semibold mb-4 text-blue-300">Model Architecture</h3>
+    <div className="ff-box p-5">
+      <h3 className="ff-section-heading mb-4">Model Architecture</h3>
       <div className="overflow-x-auto">
-        <div className="p-4">
-          {/* Layer Groups */}
-          <div className="hidden md:flex items-center justify-between gap-2 min-w-[900px]">
-            {/* Desktop Layout (Horizontal) */}
-            {/* Input Processing */}
-            <div className="flex-shrink-0 w-48">
-              <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg p-4 border border-blue-500">
-                <h4 className="text-blue-300 font-semibold mb-2">Input</h4>
-                <div className="text-sm text-gray-300">
-                  <p>28 x 28</p>
-                  <p>Grayscale</p>
-                  <p>1 Channel</p>
+        <div className="py-2">
+          {/* Desktop Layout (Horizontal) */}
+          <div className="hidden md:flex items-center justify-between gap-2 min-w-[820px]">
+            <div className="flex-shrink-0 w-44 bg-[#f4e9cd] p-3.5" style={{ boxShadow: '0 0 0 1px #2b2118' }}>
+              <span className="ff-stamp ff-stamp-common mb-2">Stage I · Input</span>
+              <div className="text-[16px] text-[#2b2118] mt-1">
+                <p>28 × 28 px</p>
+                <p>Grayscale</p>
+                <p>1 Channel</p>
+              </div>
+            </div>
+
+            <ArrowRight className="text-[#b8322b] flex-shrink-0" />
+
+            <div className="flex-shrink-0 w-60 bg-[#f4e9cd] p-3.5" style={{ boxShadow: '0 0 0 1px #2b2118' }}>
+              <span className="ff-stamp ff-stamp-uncommon mb-2">Stage II · Features</span>
+              <div className="space-y-2 text-[15px] text-[#2b2118] mt-1">
+                <div>
+                  <p className="font-semibold">Conv1 + ReLU + MaxPool</p>
+                  <p className="text-[#6a583f]">32 filters (3×3) → 14×14×32</p>
+                </div>
+                <div>
+                  <p className="font-semibold">Conv2 + ReLU + MaxPool</p>
+                  <p className="text-[#6a583f]">64 filters (3×3) → 7×7×64</p>
                 </div>
               </div>
             </div>
 
-            <ArrowRight className="text-blue-400 flex-shrink-0" />
+            <ArrowRight className="text-[#b8322b] flex-shrink-0" />
 
-            {/* Feature Extraction */}
-            <div className="flex-shrink-0 w-60">
-              <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg p-4 border border-green-500">
-                <h4 className="text-green-300 font-semibold mb-2">Feature Extraction</h4>
-                <div className="space-y-3">
-                  <div className="text-sm text-gray-300">
-                    <p className="font-medium">Conv1 + ReLU + MaxPool</p>
-                    <p>32 filters (3x3)</p>
-                    <p>Output: 14x14x32</p>
-                  </div>
-                  <div className="text-sm text-gray-300">
-                    <p className="font-medium">Conv2 + ReLU + MaxPool</p>
-                    <p>64 filters (3x3)</p>
-                    <p>Output: 7x7x64</p>
-                  </div>
-                </div>
+            <div className="flex-shrink-0 w-40 bg-[#f4e9cd] p-3.5" style={{ boxShadow: '0 0 0 1px #2b2118' }}>
+              <span className="ff-stamp ff-stamp-rare mb-2">Stage III · Flatten</span>
+              <div className="text-[16px] text-[#2b2118] mt-1">
+                <p>7 × 7 × 64</p>
+                <p className="text-[#b8322b]">↓</p>
+                <p>3,136 features</p>
               </div>
             </div>
 
-            <ArrowRight className="text-green-400 flex-shrink-0" />
+            <ArrowRight className="text-[#b8322b] flex-shrink-0" />
 
-            {/* Flatten */}
-            <div className="flex-shrink-0 w-38">
-              <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 rounded-lg p-4 border border-yellow-500">
-                <h4 className="text-yellow-300 font-semibold mb-2">Flatten</h4>
-                <div className="text-sm text-gray-300">
-                  <p>7 x 7 x 64</p>
-                  <p className="text-center relative left-[-15px]">↓</p>
-                  <p>3,136 features</p>
-                </div>
-              </div>
-            </div>
-
-            <ArrowRight className="text-yellow-400 flex-shrink-0" />
-
-            {/* Classification */}
-            <div className="flex-shrink-0 w-40">
-              <div className="bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-lg p-4 border border-purple-500">
-                <h4 className="text-purple-300 font-semibold mb-2">Classification</h4>
-                <div className="text-sm text-gray-300">
-                  <p>Dense (128)</p>
-                  <p>ReLU</p>
-                  <p>Dense (3)</p>
-                  <p>Softmax</p>
-                </div>
+            <div className="flex-shrink-0 w-44 bg-[#f4e9cd] p-3.5" style={{ boxShadow: '0 0 0 1px #2b2118' }}>
+              <span className="ff-stamp ff-stamp-elusive mb-2">Stage IV · Output</span>
+              <div className="text-[16px] text-[#2b2118] mt-1">
+                <p>Dense (128) + ReLU</p>
+                <p>Dense (3)</p>
+                <p>Softmax</p>
               </div>
             </div>
           </div>
 
           {/* Mobile Layout (Vertical) */}
-          <div className="md:hidden flex flex-col items-center space-y-4">
-            {/* Input Processing */}
-            <div className="w-full max-w-sm">
-              <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg p-4 border border-blue-500">
-                <h4 className="text-blue-300 font-semibold mb-2">Input</h4>
-                <div className="text-sm text-gray-300">
-                  <p>28 x 28</p>
-                  <p>Grayscale</p>
-                  <p>1 Channel</p>
-                </div>
-              </div>
+          <div className="md:hidden flex flex-col items-center space-y-3">
+            <div className="w-full bg-[#f4e9cd] p-3.5" style={{ boxShadow: '0 0 0 1px #2b2118' }}>
+              <span className="ff-stamp ff-stamp-common mb-1">Stage I · Input</span>
+              <p className="text-[16px] text-[#2b2118] mt-1">28 × 28 Grayscale (1 Channel)</p>
             </div>
-
-            <ArrowDown className="text-blue-400" />
-
-            {/* Feature Extraction */}
-            <div className="w-full max-w-sm">
-              <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg p-4 border border-green-500">
-                <h4 className="text-green-300 font-semibold mb-2">Feature Extraction</h4>
-                <div className="space-y-3">
-                  <div className="text-sm text-gray-300">
-                    <p className="font-medium">Conv1 + ReLU + MaxPool</p>
-                    <p>32 filters (3x3)</p>
-                    <p>Output: 14x14x32</p>
-                  </div>
-                  <div className="text-sm text-gray-300">
-                    <p className="font-medium">Conv2 + ReLU + MaxPool</p>
-                    <p>64 filters (3x3)</p>
-                    <p>Output: 7x7x64</p>
-                  </div>
-                </div>
-              </div>
+            <ArrowDown className="text-[#b8322b]" />
+            <div className="w-full bg-[#f4e9cd] p-3.5" style={{ boxShadow: '0 0 0 1px #2b2118' }}>
+              <span className="ff-stamp ff-stamp-uncommon mb-1">Stage II · Feature Extraction</span>
+              <p className="text-[16px] text-[#2b2118] mt-1">Conv1 (32) → Conv2 (64) + ReLU + MaxPool</p>
             </div>
-
-            <ArrowDown className="text-green-400" />
-
-            {/* Flatten */}
-            <div className="w-full max-w-sm">
-              <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 rounded-lg p-4 border border-yellow-500">
-                <h4 className="text-yellow-300 font-semibold mb-2">Flatten</h4>
-                <div className="text-sm text-gray-300">
-                  <p>7 x 7 x 64</p>
-                  <p className="relative left-[25px]">↓</p>
-                  <p>3,136 features</p>
-                </div>
-              </div>
+            <ArrowDown className="text-[#b8322b]" />
+            <div className="w-full bg-[#f4e9cd] p-3.5" style={{ boxShadow: '0 0 0 1px #2b2118' }}>
+              <span className="ff-stamp ff-stamp-rare mb-1">Stage III · Flatten</span>
+              <p className="text-[16px] text-[#2b2118] mt-1">7 × 7 × 64 → 3,136 features</p>
             </div>
-
-            <ArrowDown className="text-yellow-400" />
-
-            {/* Classification */}
-            <div className="w-full max-w-sm">
-              <div className="bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-lg p-4 border border-purple-500">
-                <h4 className="text-purple-300 font-semibold mb-2">Classification</h4>
-                <div className="text-sm text-gray-300">
-                  <p>Dense (128)</p>
-                  <p>ReLU</p>
-                  <p>Dense (3)</p>
-                  <p>Softmax</p>
-                </div>
-              </div>
+            <ArrowDown className="text-[#b8322b]" />
+            <div className="w-full bg-[#f4e9cd] p-3.5" style={{ boxShadow: '0 0 0 1px #2b2118' }}>
+              <span className="ff-stamp ff-stamp-elusive mb-1">Stage IV · Classification</span>
+              <p className="text-[16px] text-[#2b2118] mt-1">Dense (128) → Dense (3) + Softmax</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="mt-6 text-sm text-gray-400">
-        <p className="font-medium mb-2">Architecture Overview:</p>
-        <ul className="list-disc list-inside space-y-1">
-          <li>Input layer accepts 28x28 grayscale images</li>
+      <div className="mt-5 pt-4 border-t border-dashed border-[#b9a67e] text-[16.5px] text-[#6a583f]">
+        <p className="font-pixel uppercase tracking-[0.14em] text-[16px] text-[#b8322b] mb-1">Architecture Overview</p>
+        <ul className="list-disc list-inside space-y-1 text-[#2b2118]">
+          <li>Input layer accepts 28×28 grayscale images</li>
           <li>Two convolutional blocks with ReLU activation and max pooling extract features</li>
           <li>Flatten layer converts spatial features to a 1D vector</li>
           <li>Two dense layers with ReLU and Softmax produce final class probabilities</li>
         </ul>
       </div>
-    </Card>
+    </div>
   );
 };
 
