@@ -113,7 +113,6 @@ const ProjectsPage = () => {
               "Text-to-SQL project: Natural language to SQL query",
               "Volleyball metric improvement for players and coaches",
               "Deep Birdsound Generator using diffusion in an audio context",
-              "Optimizing and Evaluating Large Language Models for Swedish Government Document Classification",
             ].map((project, index) => (
               <div key={index} className="relative">
                 <span

@@ -3,9 +3,161 @@ import DrawingCanvas from '../components/DrawingCanvas';
 import ModelArchitecture from '../components/ModelArchitecture';
 import DatasetSection from '../components/DatasetSection';
 import { Button } from "@/components/ui/button";
-import { FileDown } from "lucide-react";
+import { FileDown, ExternalLink } from "lucide-react";
 
 export const projectDetails = {
+  documentclassification: {
+    title: "Multimodal Document Classification",
+    date: "Jun 2025",
+    description: "Optimizing and evaluating language and vision models for Swedish government document classification.",
+    content: (
+      <>
+        <div>
+          <img
+            src={`${import.meta.env.BASE_URL}images/document_classification/early_fusion_architecture.png`}
+            alt="Complex Early Fusion Architecture"
+            className="w-full max-w-xl h-auto mx-auto mb-4 bg-white p-3"
+            style={{ boxShadow: '0 0 0 1px #2b2118' }}
+          />
+          <p className="text-sm text-[#6a583f] text-center mb-6">
+            Complex early fusion architecture combining pre-trained ViT and KB-SBERT CLS representations through a transformer fusion block with residual connections.
+          </p>
+        </div>
+
+        <p className="mb-4">
+          Swedish government agencies handle an extensive volume of documents daily. These range from digital agreements, decisions, and invoices to scanned receipts, text message screenshots, and photographs. Because of the sensitive nature of public administration records, automated classification systems must be accurate, scalable, and deployable locally without sending data to external cloud providers.
+        </p>
+        <p className="mb-6">
+          This project investigates document classification strategies across 15 document categories (~55,000 files) using both unimodal (text-only and vision-only) and multimodal fusion architectures. We also built a custom human benchmark tool to evaluate dataset quality and compare model performance against human annotators.
+        </p>
+
+        <div className="flex flex-wrap gap-4 mb-8">
+          <button
+            onClick={() => window.open("https://liu.diva-portal.org/smash/get/diva2:2000764/FULLTEXT01.pdf", '_blank', 'noopener,noreferrer')}
+            className="ff-go"
+          >
+            <FileDown className="h-4 w-4 mr-2" />
+            Read Full Thesis (PDF)
+          </button>
+          <a
+            href="https://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A2000764&dswid=6416"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ff-go-secondary inline-flex items-center"
+          >
+            <ExternalLink className="h-4 w-4 mr-2" />
+            View on DiVA Portal
+          </a>
+        </div>
+
+        <h3 className="ff-section-heading mt-8 mb-3">Key Findings &amp; Contributions</h3>
+        <ul className="ff-list mb-6 space-y-2.5">
+          <li>
+            Novel transformer-based early fusion architecture achieved the highest overall accuracy by combining visual features from ViT and textual features from KB-SBERT, outperforming all unimodal models and the human benchmark.
+          </li>
+          <li>
+            Fine-tuning KB-SBERT improved accuracy from 76.68% (frozen embeddings + MLP head) to 89.34% in just 43 minutes of training, demonstrating effective domain-specific adaptation for Swedish administrative terminology.
+          </li>
+          <li>
+            While QLoRA-tuned Qwen2.5-3B reached 83.90% accuracy, encoder models (KB-SBERT, DeBERTa) were over two orders of magnitude faster at inference (20.7 files/s vs. 0.1 files/s).
+          </li>
+          <li>
+            Introduced a tunable operational score metric evaluating models across varying priorities between inference throughput and predictive accuracy.
+          </li>
+        </ul>
+
+        <h3 className="ff-section-heading mt-8 mb-4">Model Performance Comparison</h3>
+        <div className="overflow-x-auto mb-8">
+          <table className="w-full border-collapse text-left text-[16px]">
+            <thead>
+              <tr className="border-b-[3px] border-double border-[#2b2118] font-pixel uppercase tracking-[0.12em] text-[15px] text-[#6a583f]">
+                <th className="py-2 pr-4 font-normal">Model</th>
+                <th className="py-2 px-3 font-normal">Model Acc.</th>
+                <th className="py-2 px-3 font-normal">Dataset Acc.</th>
+                <th className="py-2 px-3 font-normal">Weighted F1</th>
+                <th className="py-2 pl-3 font-normal">Throughput</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { name: "Complex Early Fusion (ViT + KB-SBERT)", modelAcc: "89.92%", dataAcc: "86.23%", f1: "0.8981", speed: "2.7 files/s", highlight: true },
+                { name: "Fine-tuned KB-SBERT", modelAcc: "89.34%", dataAcc: "83.22%", f1: "0.8931", speed: "20.7 files/s", highlight: false },
+                { name: "Fine-tuned DeBERTa", modelAcc: "89.23%", dataAcc: "83.14%", f1: "0.8918", speed: "13.9 files/s", highlight: false },
+                { name: "Hierarchical Text Fusion", modelAcc: "88.81%", dataAcc: "82.68%", f1: "0.8863", speed: "3.1 files/s", highlight: false },
+                { name: "Late Fusion", modelAcc: "88.59%", dataAcc: "84.95%", f1: "0.8828", speed: "2.7 files/s", highlight: false },
+                { name: "Fine-tuned ViT", modelAcc: "85.10%", dataAcc: "75.77%", f1: "0.8496", speed: "6.1 files/s", highlight: false },
+                { name: "Decoder-based Qwen2.5-3B (QLoRA)", modelAcc: "83.90%", dataAcc: "78.19%", f1: "0.8369", speed: "0.1 files/s", highlight: false },
+                { name: "Human Benchmark", modelAcc: "82.60%", dataAcc: "82.60%", f1: "0.8415", speed: "0.2 files/s", highlight: false },
+                { name: "Naive Bayes Baseline", modelAcc: "78.06%", dataAcc: "73.20%", f1: "0.7757", speed: "5379.0 files/s", highlight: false },
+              ].map((row, idx) => (
+                <tr
+                  key={idx}
+                  className={`border-b border-[#b9a67e] last:border-b-[#2b2118] ${row.highlight ? "font-semibold bg-[#efe0bc]" : ""}`}
+                >
+                  <td className="py-2.5 pr-4">{row.name}</td>
+                  <td className="py-2.5 px-3">{row.modelAcc}</td>
+                  <td className="py-2.5 px-3">{row.dataAcc}</td>
+                  <td className="py-2.5 px-3">{row.f1}</td>
+                  <td className="py-2.5 pl-3">{row.speed}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h3 className="ff-section-heading mt-8 mb-4">Architecture &amp; Evaluation Visuals</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <img
+              src={`${import.meta.env.BASE_URL}images/document_classification/early_vs_late_fusion.png`}
+              alt="Early Fusion vs Late Fusion"
+              className="w-full h-auto mb-2 bg-white p-2"
+              style={{ boxShadow: '0 0 0 1px #2b2118' }}
+            />
+            <p className="text-sm text-[#6a583f]">
+              Comparison between early representation fusion and late prediction fusion.
+            </p>
+          </div>
+          <div>
+            <img
+              src={`${import.meta.env.BASE_URL}images/document_classification/confusion_matrix_fusion.png`}
+              alt="Complex Early Fusion Confusion Matrix"
+              className="w-full h-auto mb-2 bg-white p-2"
+              style={{ boxShadow: '0 0 0 1px #2b2118' }}
+            />
+            <p className="text-sm text-[#6a583f]">
+              Confusion matrix for the Complex Early Fusion classifier across the 15 document classes.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <img
+              src={`${import.meta.env.BASE_URL}images/document_classification/model_scores.png`}
+              alt="Model Score vs Lambda"
+              className="w-full h-auto mb-2 bg-white p-2"
+              style={{ boxShadow: '0 0 0 1px #2b2118' }}
+            />
+            <p className="text-sm text-[#6a583f]">
+              Model score as a function of λ (weight placed on accuracy vs. log-normalized throughput).
+            </p>
+          </div>
+          <div>
+            <img
+              src={`${import.meta.env.BASE_URL}images/document_classification/model_ranks.png`}
+              alt="Model Ranks across Lambda"
+              className="w-full h-auto mb-2 bg-white p-2"
+              style={{ boxShadow: '0 0 0 1px #2b2118' }}
+            />
+            <p className="text-sm text-[#6a583f]">
+              Model ranking across λ. Fine-tuned KB-SBERT remains top-3 across all accuracy–speed trade-offs, while Complex Early Fusion leads when accuracy is prioritized.
+            </p>
+          </div>
+        </div>
+      </>
+    )
+  },
   safetysam: {
     title: "SafetySam",
     date: "Sep 2024",

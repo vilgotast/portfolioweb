@@ -1,5 +1,13 @@
 export const projectData = [
   {
+    title: "Multimodal Document Classification",
+    date: "Jun 2025",
+    description: "Optimizing and evaluating language and vision models for Swedish government document classification.",
+    tags: ["Multimodal Fusion", "BERT & ViT", "Master's Thesis"],
+    link: "/projects/documentclassification",
+    image: `${import.meta.env.BASE_URL}images/document_classification/early_vs_late_fusion.png`
+  },
+  {
     title: "SafetySam",
     date: "Sep 2024",
     description: "A travel-advice chatbot using RAG (Retrieval-Augmented Generation).",

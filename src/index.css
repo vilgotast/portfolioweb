@@ -198,4 +198,25 @@
   .ff-stamp-rare { --tc: #b62f28; background: rgba(249, 220, 216, 0.65); }
   .ff-stamp-elusive { --tc: #5d43b5; background: rgba(232, 224, 248, 0.65); }
   .ff-stamp-farflung { --tc: #2b2118; background: #f2c14e; }
+
+  .ff-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .ff-list > li {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .ff-list > li::before {
+    content: '';
+    position: absolute;
+    left: 0.25rem;
+    top: 0.62em;
+    width: 7px;
+    height: 7px;
+    background-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--ink);
+  }
 }

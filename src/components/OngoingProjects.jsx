@@ -4,8 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const ongoingProjects = [
   "Text-to-SQL project: Natural language to SQL query",
   "Volleyball metric improvement for players and coaches",
-  "Deep Birdsound Generator using diffusion in an audio context",
-  "Optimizing and Evaluating Large Language Models for Swedish Government Document Classification"
+  "Deep Birdsound Generator using diffusion in an audio context"
 ];
 
 const OngoingProjects = () => {
